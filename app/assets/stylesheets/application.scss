@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:700);
+
+/* Header */
+.navbar-fixed-top { background-color: #9F111B; }
+
+.navbar-default .navbar-brand { color: #F6F6F6; }
+
+.navbar-brand {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
+}
+
+/* Body */
+.body { margin-top: 50px; }
+
+/* Footer */
+.back-to-top {
+  float: right;
+  font-size: 15px;
+  margin-top: 13px;
+}
+
+.glyphicon-menu-up { padding-left: 5px; }
