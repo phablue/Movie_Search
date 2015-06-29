@@ -4,7 +4,7 @@ module OmdbApi
     include HTTParty
 
     def initialize
-      @url = 'http://www.omdbapi.com/?'
+      @url = 'http://www.omdbapi.com/'
     end
 
     def get_data
@@ -31,13 +31,13 @@ module OmdbApi
     end
 
     def options(imdb_ID)
-      "i=#{imdb_ID}&tomatoes=ture"
+      "?i=#{imdb_ID}&tomatoes=true"
     end
 
     def start_imdb_ID
       begin
         unless Movie.last.imdb_ID.nil?
-          Movie.last.imdb_ID
+          next_imdb_ID(Movie.last.imdb_ID)
         end
       rescue NoMethodError
         'tt0000001'
