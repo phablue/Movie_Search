@@ -23,7 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use HTTP Request and Response
 gem 'httparty'
 
-group :development, :test do
+group :test do
   # Use Rspec for testing
   gem 'rspec-rails'
   # Use for testing http request and response
