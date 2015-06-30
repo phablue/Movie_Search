@@ -5,6 +5,12 @@ class Search
     $("[data-id='searchWord']").val()
 
   searching: ->
-    if _.isNull(searchWord())
+    searchWord = @searchWord().replace(/\s+/g, '')
+
+    if _.isEmpty(searchWord) || searchWord.length < 2
+      return @errorMessage()
+
+  errorMessage: ->
+    "The search word must be more than 2 characters"
 
 window.Search = Search
