@@ -33,4 +33,5 @@ group :development, :test do
   # Use for testing script
   gem "jasmine-rails"
   gem "jasmine-jquery-rails"
+  gem 'sinon-rails'
 end
