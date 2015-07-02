@@ -9,6 +9,7 @@ class Search
 
     if _.isEmpty(searchWord) || searchWord.length < 2
       return @errorMessage()
+    @searchWord()
 
   errorMessage: ->
     "The search word must be more than 2 characters"

@@ -15,8 +15,9 @@ describe "Test Search Class", ->
       expect(@search.searching()).toEqual @search.errorMessage()
 
     it "Return error message, when search word less than 2 characters", ->
-      $("[data-id='searchWord']").val("H")
+      searchWord = $("[data-id='searchWord']").val("H")
 
+      expect(searchWord.val().length).toEqual 1
       expect(@search.searching()).toEqual @search.errorMessage()
 
     it "Return error message, when search word ignore white space", ->
@@ -25,8 +26,8 @@ describe "Test Search Class", ->
       expect(searchWord.val().length).toEqual 1
       expect(@search.searching()).toEqual @search.errorMessage()
 
-    it "Request search result page, when search word more than 2 characters", ->
+    it "Return search word, when search word more than 2 characters", ->
       searchWord = $("[data-id='searchWord']").val("Hi")
 
       expect(searchWord.val().length).toEqual 2
-      expect(@search.searching()).toEqual @search.errorMessage()
+      expect(@search.searching()).toEqual searchWord.val()
