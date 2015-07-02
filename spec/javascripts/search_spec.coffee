@@ -22,5 +22,11 @@ describe "Test Search Class", ->
     it "Return error message, when search word ignore white space", ->
       searchWord = $("[data-id='searchWord']").val(" ")
 
-      expect(searchWord.length).toEqual 1
+      expect(searchWord.val().length).toEqual 1
+      expect(@search.searching()).toEqual @search.errorMessage()
+
+    it "Request search result page, when search word more than 2 characters", ->
+      searchWord = $("[data-id='searchWord']").val("Hi")
+
+      expect(searchWord.val().length).toEqual 2
       expect(@search.searching()).toEqual @search.errorMessage()
