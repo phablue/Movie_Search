@@ -9,7 +9,8 @@ class Search
 
     if _.isEmpty(searchWord) || searchWord.length < 2
       return @errorMessage()
-    @searchWord()
+    $.getJSON("/search", {key_word: @searchWord()}).done (data) ->
+      data
 
   errorMessage: ->
     "The search word must be more than 2 characters"
