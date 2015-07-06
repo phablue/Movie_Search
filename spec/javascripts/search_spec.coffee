@@ -46,10 +46,3 @@ describe "Test Search Class", ->
       @search.searching()
 
       expect(mockGetjson).toHaveBeenCalled()
-
-    it "Alerts error message, when the search word characters is less than 2", ->
-      searchWord = $("[data-id='searchWord']").val("S")
-
-      @search.searching()
-
-      expect(@mockAlert).toHaveBeenCalled()
