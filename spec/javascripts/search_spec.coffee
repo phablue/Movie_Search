@@ -39,10 +39,12 @@ describe "Test Search Class", ->
 
         expect(@mockAlert).toHaveBeenCalledWith(@system.errorMessage())
 
-    it "Call getJSON function, when search word have matching data ", ->
-      data = [{ movie: "frozon" }, { movie: "Starwars" }]
-      mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
+    describe "When the search word is more than 2", ->
+      beforeEach ->
+        data = [{ movie: "frozon" }, { movie: "Starwars" }]
+        @mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
 
-      @search.searching()
+      it "Call getJSON function", ->
+        @search.searching()
 
-      expect(mockGetjson).toHaveBeenCalled()
+        expect(@mockGetjson).toHaveBeenCalled()
