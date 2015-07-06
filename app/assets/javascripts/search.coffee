@@ -1,5 +1,6 @@
 class Search
   constructor: ->
+    @system = new System
 
   searchWord: ->
     $("[data-id='searchWord']").val()
@@ -8,11 +9,8 @@ class Search
     searchWord = @searchWord().replace(/\s+/g, '')
 
     if _.isEmpty(searchWord) || searchWord.length < 2
-      return @errorMessage()
+      return @system.notice(@system.errorMessage())
     $.getJSON("/search", {key_word: @searchWord()}).done (data) ->
       data
-
-  errorMessage: ->
-    alert "The search word must be more than 2 characters"
 
 window.Search = Search
