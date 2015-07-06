@@ -19,7 +19,7 @@ describe "Test Search Class", ->
 
         @search.searching()
 
-        expect(@mockAlert).toHaveBeenCalledWith(@system.errorMessage())
+        expect(@mockAlert).toHaveBeenCalledWith(@system.searchWordErrorMessage())
 
       it "When search word characters less than 2", ->
         searchWord = $("[data-id='searchWord']").val("H")
@@ -28,7 +28,7 @@ describe "Test Search Class", ->
 
         @search.searching()
 
-        expect(@mockAlert).toHaveBeenCalledWith(@system.errorMessage())
+        expect(@mockAlert).toHaveBeenCalledWith(@system.searchWordErrorMessage())
 
       it "When search word ignore white space", ->
         searchWord = $("[data-id='searchWord']").val(" ")
@@ -37,9 +37,9 @@ describe "Test Search Class", ->
 
         @search.searching()
 
-        expect(@mockAlert).toHaveBeenCalledWith(@system.errorMessage())
+        expect(@mockAlert).toHaveBeenCalledWith(@system.searchWordErrorMessage())
 
-    describe "When the search word is more than 2", ->
+    describe "When the search word characters is more than 2", ->
       beforeEach ->
         data = [{ movie: "frozon" }, { movie: "Starwars" }]
         @mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })

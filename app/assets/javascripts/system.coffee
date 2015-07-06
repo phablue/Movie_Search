@@ -4,7 +4,7 @@ class System
   notice: (message) ->
     alert message
 
-  errorMessage: ->
+  searchWordErrorMessage: ->
     "The search word must be more than 2 characters"
 
 window.System = System

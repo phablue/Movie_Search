@@ -9,7 +9,7 @@ class Search
     searchWord = @searchWord().replace(/\s+/g, '')
 
     if _.isEmpty(searchWord) || searchWord.length < 2
-      return @system.notice(@system.errorMessage())
+      return @system.notice(@system.searchWordErrorMessage())
     $.getJSON("/search", {key_word: @searchWord()}).done (data) ->
       data
 
