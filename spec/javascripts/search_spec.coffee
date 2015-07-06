@@ -27,12 +27,6 @@ describe "Test Search Class", ->
         expect(searchWord.val().length).toEqual 1
         expect(@search.searching()).toEqual @search.errorMessage()
 
-    it "Return search word, when search word more than 2 characters", ->
-      searchWord = $("[data-id='searchWord']").val("Hi")
-
-      expect(searchWord.val().length).toEqual 2
-      expect(@search.searching()).toEqual searchWord.val()
-
     it "call getJSON function, when search word have matching data ", ->
       data = [{ movie: "frozon" }, { movie: "Starwars" }]
       getjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
