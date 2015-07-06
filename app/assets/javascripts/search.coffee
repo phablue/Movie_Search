@@ -13,6 +13,6 @@ class Search
       data
 
   errorMessage: ->
-    "The search word must be more than 2 characters"
+    alert "The search word must be more than 2 characters"
 
 window.Search = Search

@@ -27,11 +27,20 @@ describe "Test Search Class", ->
         expect(searchWord.val().length).toEqual 1
         expect(@search.searching()).toEqual @search.errorMessage()
 
-    it "call getJSON function, when search word have matching data ", ->
+    it "Call getJSON function, when search word have matching data ", ->
       data = [{ movie: "frozon" }, { movie: "Starwars" }]
-      getjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
+      mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
 
       @search.searching()
 
-      expect(getjson).toHaveBeenCalled()
+      expect(mockGetjson).toHaveBeenCalled()
+
+    it "Alerts error message, when the search word characters is less than 2", ->
+      searchWord = $("[data-id='searchWord']").val("S")
+      mockAlert = spyOn(window, "alert")
+
+      @search.searching()
+
+      expect(mockAlert).toHaveBeenCalled()
+
 
