@@ -1,6 +1,9 @@
 class System
   constructor: ->
 
+  deleteWhiteSpace: (elements) ->
+    elements.replace(/\s+/g, '')
+
   notice: (message) ->
     alert message
 

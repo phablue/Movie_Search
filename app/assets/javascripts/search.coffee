@@ -1,15 +1,15 @@
 class Search
   constructor: ->
-    @system = new System
+    @sys = new System
 
   searchWord: ->
     $("[data-id='searchWord']").val()
 
   searching: ->
-    searchWord = @searchWord().replace(/\s+/g, '')
+    searchWord = @sys.deleteWhiteSpace(@searchWord())
 
     if _.isEmpty(searchWord) || searchWord.length < 2
-      return @system.notice(@system.searchWordErrorMessage())
+      return @sys.notice(@sys.searchWordErrorMessage())
     $.getJSON("/search", {key_word: @searchWord()}).done (data) ->
       data
 
