@@ -50,9 +50,10 @@ describe "Test Search Class", ->
       beforeEach ->
         searchWord.val("frozon")
         data = [{ movie: "frozon" }, { movie: "Starwars" }]
-        @mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
 
       it "Call getJSON function", ->
+        mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
+
         @search.searching()
 
-        expect(@mockGetjson).toHaveBeenCalled()
+        expect(mockGetjson).toHaveBeenCalled()
