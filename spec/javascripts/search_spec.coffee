@@ -47,13 +47,25 @@ describe "Test Search Class", ->
         expect(mockAlert).toHaveBeenCalledWith(@system.searchWordErrorMessage())
 
     describe "When the search word characters is more than 2", ->
+      data = null
+      mockGetjson = null
+
       beforeEach ->
         searchWord.val("frozon")
         data = [{ movie: "frozon" }, { movie: "Starwars" }]
-
-      it "Call getJSON function", ->
         mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(data) })
 
+      it "Call getJSON function", ->
         @search.searching()
 
         expect(mockGetjson).toHaveBeenCalled()
+
+      it "Get matching data from server", ->
+        fakeServer = sinon.fakeServer.create()
+        fakeServer.respondWith("GET", @search.url,
+                              [200, { "Content-Type": "application/json" }, JSON.stringify(data)])
+
+        result = @search.searching()
+        fakeServer.respond()
+
+        expect(result).toEqual data
