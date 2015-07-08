@@ -1,7 +1,6 @@
 class Search
   constructor: ->
     @sys = new System
-    @url = "/search"
 
   searchWord: ->
     $("[data-id='searchWord']").val()
@@ -11,7 +10,7 @@ class Search
 
     if _.isEmpty(searchWord) || searchWord.length < 2
       return @sys.notice(@sys.searchWordErrorMessage())
-    $.getJSON(@url, {key_word: @searchWord()}).done (data) ->
+    $.getJSON("/search", {key_word: @searchWord()}).done (data) ->
       data
 
 window.Search = Search
