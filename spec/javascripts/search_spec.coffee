@@ -2,7 +2,8 @@ describe "Test Search Class", ->
   beforeEach ->
     @search = new Search
     @system = new System
-    @searchWord = affix('input[data-id="searchWord"]')
+    affix('form input[data-id="searchWord"] button[data-id="searchBTN"]')
+    @searchWord = $("[data-id='searchWord']")
 
   describe "Test 'searchWord' method", ->
     it "Return 'Hello', when search input box value is 'Hello'", ->
@@ -59,12 +60,12 @@ describe "Test Search Class", ->
 
         fakeServer = sinon.fakeServer.create()
         fakeServer.respondWith("GET", url,
-                              [200, { "Content-Type": "application/json" },JSON.stringify(@data)])
+                              [200, { "Content-Type": "application/json" }, JSON.stringify(@data)])
 
         result = @search.searching()
 
         fakeServer.respond()
 
-        expect(@data).toEqual @data
+        expect(result.responseJSON).toEqual @data
 
         fakeServer.restore()
