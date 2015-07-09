@@ -1,15 +1,23 @@
 describe "Test Search Class", ->
+  search = null
+  sys = null
+  searchWord = null
+
   beforeEach ->
-    @search = new Search
-    @system = new System
-    affix('form input[data-id="searchWord"] button[data-id="searchBTN"]')
-    @searchWord = $("[data-id='searchWord']")
+    search = new Search
+    sys = new System
+    affix('input[data-id="searchWord"] button[data-id="searchBTN"]')
+    searchWord = $("[data-id='searchWord']")
+
+  seachKeyWord = ->
+    search.searching()
+    $('[data-id="searchBTN"]').click()
 
   describe "Test 'searchWord' method", ->
     it "Return 'Hello', when search input box value is 'Hello'", ->
-      @searchWord.val("Hello")
+      searchWord.val("Hello")
 
-      expect(@search.searchWord()).toEqual "Hello"
+      expect(search.searchWord()).toEqual "Hello"
 
   describe "Test 'searching' method", ->
     describe "Alert error message", ->
@@ -17,55 +25,55 @@ describe "Test Search Class", ->
         @mockAlert = spyOn(window, "alert")
 
       it "When search word is empty", ->
-        @searchWord.val("")
+        searchWord.val("")
 
-        expect(@search.searchWord().length).toEqual 0
+        expect(search.searchWord().length).toEqual 0
 
-        @search.searching()
+        seachKeyWord()
 
-        expect(@mockAlert).toHaveBeenCalledWith(@system.searchWordErrorMessage())
+        expect(@mockAlert).toHaveBeenCalledWith(sys.searchWordErrorMessage())
 
       it "When search word characters less than 2", ->
-        @searchWord.val("H")
+        searchWord.val("H")
 
-        expect(@search.searchWord().length).toEqual 1
+        expect(search.searchWord().length).toEqual 1
 
-        @search.searching()
+        seachKeyWord()
 
-        expect(@mockAlert).toHaveBeenCalledWith(@system.searchWordErrorMessage())
+        expect(@mockAlert).toHaveBeenCalledWith(sys.searchWordErrorMessage())
 
       it "When search word ignore white space", ->
-        @searchWord.val(" ")
+        searchWord.val(" ")
 
-        expect(@search.searchWord().length).toEqual 1
+        expect(search.searchWord().length).toEqual 1
 
-        @search.searching()
+        seachKeyWord()
 
-        expect(@mockAlert).toHaveBeenCalledWith(@system.searchWordErrorMessage())
+        expect(@mockAlert).toHaveBeenCalledWith(sys.searchWordErrorMessage())
 
     describe "When the search word characters is more than 2", ->
       beforeEach ->
-        @searchWord.val("frozon")
+        searchWord.val("frozon")
         @data = [{ movie: "frozon" }, { movie: "Starwars" }]
 
       it "Call getJSON function", ->
         mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(@data) })
 
-        @search.searching()
+        seachKeyWord()
 
         expect(mockGetjson).toHaveBeenCalled()
 
       it "Return data, when requesting success", ->
-        url = @search.url + "?q=" + @search.searchWord()
+        mockMatchingData = spyOn(search, "matchingData").and.returnValue(@data)
 
         fakeServer = sinon.fakeServer.create()
-        fakeServer.respondWith("GET", url,
+        fakeServer.respondWith("GET", search.url,
                               [200, { "Content-Type": "application/json" }, JSON.stringify(@data)])
 
-        result = @search.searching()
+        seachKeyWord()
 
         fakeServer.respond()
 
-        expect(result.responseJSON).toEqual @data
+        expect(mockMatchingData).toHaveBeenCalled()
 
         fakeServer.restore()

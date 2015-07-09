@@ -7,11 +7,24 @@ class Search
     $("[data-id='searchWord']").val()
 
   searching: ->
-    keyWord = @sys.deleteWhiteSpace(@searchWord())
+    $('[data-id="searchBTN"]').click =>
+      @searchResult()
 
-    if _.isEmpty(keyWord) || keyWord.length < 2
-      return @sys.notice(@sys.searchWordErrorMessage())
+  searchResult: ->
+    if @availableSearchWord()
+      @matchingData()
+    else
+      @errorMessage()
+
+  availableSearchWord: ->
+    keyWord = @sys.deleteWhiteSpace(@searchWord())
+    keyWord.length >= 2
+
+  matchingData: ->
     $.getJSON(@url, {q: @searchWord()}).done (data) ->
       data
+
+  errorMessage: ->
+    @sys.notice(@sys.searchWordErrorMessage())
 
 window.Search = Search
