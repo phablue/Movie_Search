@@ -56,13 +56,6 @@ describe "Test Search Class", ->
         searchWord.val("frozon")
         @data = [{ movie: "frozon" }, { movie: "Starwars" }]
 
-      it "Call getJSON function", ->
-        mockGetjson = spyOn($, "getJSON").and.returnValue({ done: (e) -> e(@data) })
-
-        seachKeyWord()
-
-        expect(mockGetjson).toHaveBeenCalled()
-
       it "Return data, when requesting success", ->
         mockMatchingData = spyOn(search, "matchingData").and.returnValue(@data)
 
