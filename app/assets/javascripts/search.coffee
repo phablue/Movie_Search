@@ -7,8 +7,13 @@ class Search
     $("[data-id='searchWord']").val()
 
   searching: ->
-    $('[data-id="searchBTN"]').click =>
+    @enterKeyactivation()
+    $("[data-id='searchBTN']").click =>
       @searchResult()
+
+  enterKeyactivation: ->
+    $("[data-id='searchWord']").keyup (e) ->
+      $("[data-id='searchBTN']").click() if(e.keyCode == 13)
 
   searchResult: ->
     if @availableSearchWord()
