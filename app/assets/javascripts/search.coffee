@@ -21,8 +21,9 @@ class Search
     keyWord.length >= 2
 
   matchingData: ->
-    $.getJSON(@url, {q: @searchWord()}).done (data) ->
-      console.log data
+    $.getJSON(@url, {q: @searchWord()}).done (data) =>
+      $(location).attr("href", "#{@url}?q=#{@searchWord()}")
+      data
 
   errorMessage: ->
     @sys.notice(@sys.searchWordErrorMessage())
