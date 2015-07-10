@@ -22,7 +22,7 @@ class Search
 
   matchingData: ->
     $.getJSON(@url, {q: @searchWord()}).done (data) ->
-      data
+      console.log data
 
   errorMessage: ->
     @sys.notice(@sys.searchWordErrorMessage())
