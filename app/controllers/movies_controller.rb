@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
 
   def search
     search_word = params["q"].strip
-    @result = search_results (search_word)
+    @movies = search_results(search_word)
   end
 
   def search_results (search_word)
@@ -13,18 +13,21 @@ class MoviesController < ApplicationController
       flash[:error] = errorMessage
       redirect_to "/"
     else
-      titles_including(search_word)
+      Movie.all.select(&included?(search_word))
     end
   end
 
-  private
-  def titles_including (search_word)
-    all_movies_title = Movie.pluck(:title)
-    all_movies_title.select {|movie| movie.include?(search_word)}
+  def show
+    @movie = Movie.find(params[:id])
   end
 
+  private
   def unavailable? (search_word)
     search_word.nil? || search_word.length < 2
+  end
+
+  def included? (search_word)
+    Proc.new {|movie| movie.title.include?(search_word)}
   end
 
   def errorMessage

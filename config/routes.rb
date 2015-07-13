@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   controller :movies do
     get "search", to: :search
+    get "movies/:id", to: :show, as: "movie"
   end
 
   root 'movies#home'
