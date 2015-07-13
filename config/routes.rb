@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get "search", to: :search
   end
 
-  root 'movies#search'
+  root 'movies#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

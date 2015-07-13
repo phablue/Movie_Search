@@ -1,7 +1,5 @@
 class Search
   constructor: ->
-    @sys = new System
-    @url = "/search"
 
   searchWord: ->
     $("[data-id='searchWord']").val()
@@ -9,28 +7,10 @@ class Search
   searching: ->
     @enterKeyactivation()
     $("[data-id='searchBTN']").click =>
-      @searchResult()
+      window.location = "/search?q=#{@searchWord()}"
 
   enterKeyactivation: ->
     $("[data-id='searchWord']").keyup (e) ->
       $("[data-id='searchBTN']").click() if(e.keyCode == 13)
-
-  searchResult: ->
-    if @availableSearchWord()
-      @matchingData()
-    else
-      @errorMessage()
-
-  availableSearchWord: ->
-    keyWord = @sys.deleteWhiteSpace(@searchWord())
-    keyWord.length >= 2
-
-  matchingData: ->
-    $.getJSON(@url, {q: @searchWord()}).done (data) =>
-      $(location).attr("href", "#{@url}?q=#{@searchWord()}")
-      data
-
-  errorMessage: ->
-    @sys.notice(@sys.searchWordErrorMessage())
 
 window.Search = Search
