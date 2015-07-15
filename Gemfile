@@ -5,6 +5,9 @@ source "https://rubygems.org"
 gem "rails", "4.2.1"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3"
+
+
+#### For front-end parts ####
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 gem "bootstrap-sass"
@@ -17,16 +20,20 @@ gem "jquery-rails"
 gem "underscore-rails"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem "turbolinks"
+
+
+#### For Back-End Parts ####
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.0"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 # Use HTTP Request and Response
 gem "httparty"
+# Use Netflix data
+gem "netflix_roulette"
 
-# Use for testing http request and response
-gem "webmock", group: :test
 
+#### For Testing ####
 group :development, :test do
   # Use Rspec for testing
   gem "rspec-rails"

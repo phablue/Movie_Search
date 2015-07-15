@@ -5,11 +5,11 @@ class MoviesController < ApplicationController
 
   def search
     search_term = params["q"].strip
-    @movies = search_results(search_term)
+    @movies = search_results_about(search_term)
     flash[:notice] = search_result_message(@movies.size, search_term)
   end
 
-  def search_results (search_term)
+  def search_results_about (search_term)
     if unavailable?(search_term)
       flash[:error] = error_message
       redirect_to "/"

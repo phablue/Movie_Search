@@ -11,7 +11,7 @@
         <%= @movie.rated %> | <%= @movie.runtime %> | <%= @movie.genre %>
       </small>
     </h3>
-    <img src= <%= @movie.poster %> alt="140x140" class="img-rounded"/>
+    <img src= "#{@movie.poster}" alt="140x140" class="img-rounded"/>
     <blockquote class="plot">
       <p><%= @movie.plot %></p>
     </blockquote>
@@ -22,18 +22,14 @@
     <div class="movie-link">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Amazon</h3>
+          <h3 class="panel-title">Watch Now</h3>
         </div>
         <div class="panel-body">
-          <a href="">S1</a>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Netflix</h3>
-        </div>
-        <div class="panel-body">
-          <a href="">S1</a>
+          <% if netflix_has?(@movie) %>
+            <a href="#{netflix_url_of(netflix_id)}">
+              Netflix <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+            </a>
+          <% end %>
         </div>
       </div>
     </div>
