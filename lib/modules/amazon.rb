@@ -5,6 +5,12 @@ module Amazon
       configure(@request)
     end
 
+    def get_movie_by(title)
+      @request.item_search(
+        query: { 'Title' => title, 'SearchIndex' => 'Video', 'BrowseNode' => '2676882011' }
+      )
+    end
+
     private
     def configure (request)
       request.configure(
