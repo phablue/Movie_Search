@@ -7,4 +7,3 @@
 /config/secrets.yml
 /public
 .DS_Store
-/lib/modules/amazon_secrets.rb
