@@ -3,12 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(http://fonts.googleapis.com/css?family=Coda+Caption:800);
 
-/* Search Page */
+/* Home */
 .jumbotron {
+  background-color: white !important;
   font-family: 'Coda Caption', sans-serif;
+  margin-top: -50px;
   text-align: center;
 }
-.main-search { margin: auto; }
+
+.main-top-image {
+  max-width:100%;
+  max-height:100%;
+  vertical-align: top;
+}
+
+.main-bottom-image {
+  float: right;
+}
+
+.main-search {
+  max-width: 70%;
+  margin-left: 26%;
+}
 
 /* Movie Show Page */
 .movie-title {
