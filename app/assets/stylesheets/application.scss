@@ -17,9 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import url(http://fonts.googleapis.com/css?family=Coda+Caption:800);
 
 /* Header */
-.navbar-fixed-top { background-color: #9F111B; }
+.navbar-fixed-top { background-color: #31302F; }
 
 .navbar-default .navbar-brand { color: #F6F6F6; }
 
@@ -30,6 +31,7 @@
 
 /* Body */
 .body { margin-top: 50px; }
+table { margin-top: 30px; }
 
 /* Footer */
 .back-to-top {

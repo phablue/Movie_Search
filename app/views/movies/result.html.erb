@@ -1,9 +1,30 @@
-<%= image_tag("film-roll", class: "search-image") %>
 <div class="result">
   <p class="result-message"><%= flash[:notice] %></p>
-  <ul class="list-unstyled">
-    <% @movies.each do |movie| %>
-      <li><%= link_to movie.title, movie_path(movie) %></li>
-    <% end %>
-  </ul>
+  <% unless  @movies.empty? %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>TITLE</th>
+          <th>DIRECTOR</th>
+          <th>ACTORS</th>
+          <th>RELEASE</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr>
+            <th scope="row">
+              <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+            </th>
+              <td><%= link_to movie.title, movie_path(movie), class: "title" %></td>
+              <td><%= decorate(movie.director) %></td>
+              <td><%= decorate(movie.actors) %></td>
+              <td><%= decorate(movie.year) %></td>
+          </tr>
+         <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>

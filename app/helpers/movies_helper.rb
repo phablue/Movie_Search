@@ -6,4 +6,8 @@ module MoviesHelper
   def amazon_has?(movie)
     Amazon::Movies.new.get_url(movie)
   end
+
+  def decorate(data)
+    data == "N/A" ? "" : data
+  end
 end

@@ -1,8 +1,6 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(http://fonts.googleapis.com/css?family=Coda+Caption:800);
-
 /* Home */
 .jumbotron {
   background-color: white !important;
@@ -17,9 +15,7 @@
   vertical-align: top;
 }
 
-.main-bottom-image {
-  float: right;
-}
+.main-bottom-image { float: right; }
 
 .main-search {
   max-width: 70%;
@@ -27,30 +23,15 @@
 }
 
 /* Result Page */
-
-/* Movie Show Page */
-.movie-title {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 700;
-}
-.img-rounded {
-  margin: 30px 0;
-  width: 140px;
-  height: 140px;
-}
-.plot {
-  position: relative;
-  left: 200px;
-  top: -170px;
-}
 .result {
-  margin-top: 100px;
+  margin-top: 80px;
   margin-left: 10%;
   max-width: 80%;
   max-height: 100%;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 20px;
+  font-size: 16px;
 }
+
 .result-message {
   background-color: #E9E9E9 !important;
   font-size: 14px;
@@ -58,4 +39,31 @@
   padding: 12px;
   color: #292C37;
   font-size: 14px;
+}
+
+table { color: #292C37; }
+
+.title { color: #292C37; }
+
+.title:hover {
+  color: #9F111B;
+  text-decoration: none;
+}
+
+/* Movie Show Page */
+.movie-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+
+.img-rounded {
+  margin: 30px 0;
+  width: 140px;
+  height: 140px;
+}
+
+.plot {
+  position: relative;
+  left: 200px;
+  top: -170px;
 }
