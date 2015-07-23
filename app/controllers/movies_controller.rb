@@ -1,3 +1,4 @@
+require 'nokogiri'
 class MoviesController < ApplicationController
   def home
     @active_header = false

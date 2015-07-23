@@ -6,6 +6,7 @@ gem "httparty"
 
 gem "netflix_roulette"
 gem "vacuum"
+gem "nokogiri"
 
 gem "sass-rails", "~> 5.0"
 gem "bootstrap-sass"

@@ -26,8 +26,13 @@
         </div>
         <div class="panel-body">
           <% if netflix_has?(@movie) %>
-            <a href="#{netflix_url_of(netflix_id)}">
+            <a href="#{netflix_has?(@movie)}">
               Netflix <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+            </a>
+          <% end %>
+          <% unless amazon_has?(@movie).empty? %>
+            <a href="#{amazon_has?(@movie)}">
+              Amazon <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
             </a>
           <% end %>
         </div>
