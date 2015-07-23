@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
     @active_header = false
   end
 
-  def search
+  def result
     search_term = params["q"].strip
     @movies = search_results_about(search_term)
     flash[:notice] = search_result_message(@movies.size, search_term)

@@ -7,7 +7,7 @@ class Search
   searching: ->
     @enterKeyactivation()
     $("[data-id='searchBTN']").click =>
-      window.location = "/search?q=#{@searchWord()}"
+      window.location = "/result?q=#{@searchWord()}"
 
   enterKeyactivation: ->
     $("[data-id='searchWord']").keyup (e) ->
