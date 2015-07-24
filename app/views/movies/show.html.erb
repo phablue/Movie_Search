@@ -1,36 +1,51 @@
-<div class="container">
+<div class="container detail">
   <div class="page-header">
     <h1 class="movie-title">
       <%= @movie.title %>
-      <small> <%= @movie.year %> </small>
+      <small> <%= decorate(@movie.year) %> </small>
     </h1>
   </div>
   <div class="page-body">
     <h3>
       <small>
-        <%= @movie.rated %> &nbsp&nbsp|&nbsp&nbsp <%= @movie.runtime %> &nbsp&nbsp|&nbsp&nbsp <%= @movie.genre %>
+        <%= decorate(@movie.rated) %> &nbsp&nbsp|&nbsp&nbsp <%= decorate(@movie.runtime) %> &nbsp&nbsp|&nbsp&nbsp <%= decorate(@movie.genre) %>
       </small>
     </h3>
-    <img src= "#{@movie.poster}" alt="140x140" class="img-rounded"/>
+    <% if @movie.poster == "N/A" %>
+      <%= image_tag("no-image", class: "img-thumbnail") %>
+    <% else %>
+      <img src= "#{@movie.poster}" class="img-thumbnail"/>
+    <% end %>
     <blockquote class="plot">
       <p><%= @movie.plot %></p>
     </blockquote>
     <div class="movie-score">
-      <h4 class="imdb">IMDB <small> <%= @movie.imdb_rating %> </small></h4>
-      <h4 class="tomato">Rotten Tomato <small> <%= @movie.tomato_meter %> </small></h4>
+      <h4>
+        <% unless @movie.imdb_rating == "N/A" %>
+          <%= image_tag("imdb") %>
+          <span class="rate"> <%= @movie.imdb_rating %> </span>
+        <% end %>
+        <% unless @movie.tomato_meter == "N/A" %>
+          <%= image_tag("tomato") %>
+          <span class="rate"> <%= @movie.tomato_meter %> </span>
+        <% end %>
+      </h4>
     </div>
-    <div class="movie-link">
+    <div class="movie-whatch-link">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Watch Now</h3>
         </div>
         <div class="panel-body">
+          <% unless available_watch?(@movie) %>
+            <p class="text-danger">Sorry, Unavailable watch</p>
+          <% end %>
           <% if netflix_has?(@movie) %>
             <a href="#{netflix_has?(@movie)}">
               Netflix <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
             </a>
           <% end %>
-          <% unless amazon_has?(@movie).empty? %>
+          <% if amazon_has?(@movie) %>
             <a href="#{amazon_has?(@movie)}">
               Amazon <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
             </a>

@@ -7,7 +7,8 @@ module Amazon
 
     def get_url (movie)
       movie = get_movie(movie.director, movie.title)
-      Nokogiri::XML(movie.body).xpath("//xmlns:DetailPageURL").text
+      movie_url = Nokogiri::XML(movie.body).xpath("//xmlns:DetailPageURL").text
+      movie_url.empty? ? false : movie_url
     end
 
     private

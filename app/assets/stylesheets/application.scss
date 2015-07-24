@@ -16,22 +16,22 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
-@import url(http://fonts.googleapis.com/css?family=Coda+Caption:800);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic|Limelight|Lato:400,700);
+
+/* General */
+table { margin-top: 30px; }
+
+body { font-family: 'Ubuntu', sans-serif; }
 
 /* Header */
 .navbar-fixed-top { background-color: #31302F; }
 
-.navbar-default .navbar-brand { color: #F6F6F6; }
-
-.navbar-brand {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 30px;
+.navbar-default .navbar-brand {
+  color: #F6F6F6;
+  font-family: 'Limelight', cursive;
 }
 
-/* Body */
-.body { margin-top: 50px; }
-table { margin-top: 30px; }
+.navbar-brand { font-size: 30px; }
 
 /* Footer */
 .back-to-top {
