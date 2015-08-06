@@ -51,13 +51,32 @@ table { color: #292C37; }
 }
 
 /* Movie Show Page */
-.detail {
-  margin-top: 50px;
-}
+.detail { margin-top: 50px; }
+
 .movie-title {
   color: #52504E;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
+}
+.movie-info {
+  color: #555;
+  line-height: 1.5;
+}
+
+.movie-info label {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 11px;
+  padding: 1px 5px;
+  text-align: center;
+}
+
+.movie-info span {
+  font-size: 12px;
+  line-height: 2;
+  padding-left: 6px;
+  padding-right: 20px;
 }
 
 .img-thumbnail {
@@ -80,6 +99,10 @@ table { color: #292C37; }
   font-weight: 700;
 }
 
-.movie-whatch-link {
-  margin-top: 30px;
+.panel-title {
+  color: #555 !important;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
 }
+
+.movie-whatch-link { margin-top: 30px; }

@@ -6,11 +6,17 @@
     </h1>
   </div>
   <div class="page-body">
-    <h3>
-      <small>
-        <%= decorate(@movie.rated) %> &nbsp&nbsp|&nbsp&nbsp <%= decorate(@movie.runtime) %> &nbsp&nbsp|&nbsp&nbsp <%= decorate(@movie.genre) %>
-      </small>
-    </h3>
+    <div class="movie-info">
+      <% unless @movie.rated == "N/A" %>
+        <label>Rated</label><span><%= decorate(@movie.rated) %></span>
+      <% end %>
+      <% unless @movie.runtime == "N/A" %>
+        <label>RunTime</label><span><%= decorate(@movie.runtime) %></span>
+      <% end %>
+      <% unless @movie.genre == "N/A" %>
+        <label>Genre</label><span><%= decorate(@movie.genre) %></span>
+      <% end %>
+    </div>
     <% if @movie.poster == "N/A" %>
       <%= image_tag("no-image", class: "img-thumbnail") %>
     <% else %>
