@@ -16,7 +16,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :meta_score
       t.string :imdb_rating
       t.string :imdb_votes
-      t.string :imdb_ID
+      t.string :imdb_ID, unique: true
       t.string :type_
       t.string :tomato_meter
       t.string :tomato_rating

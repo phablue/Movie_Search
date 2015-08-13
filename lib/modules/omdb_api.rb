@@ -10,7 +10,8 @@ module OmdbApi
     def get_data
       imdb_ID = start_imdb_ID
 
-      5.times do
+      10.times do
+        sleep 1
         data = get_data_by(imdb_ID)
         set_only_movie(data)
 
