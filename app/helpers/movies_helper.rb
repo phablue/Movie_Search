@@ -1,14 +1,10 @@
 module MoviesHelper
-  def available_watch?(movie)
-    netflix_has?(movie) || amazon_has?(movie)
+  def imdb_link(imdb_id)
+    "http://www.imdb.com/title/#{imdb_id}"
   end
 
-  def netflix_has?(movie)
-    Netflix::Movies.new.get_url(movie.title)
-  end
-
-  def amazon_has?(movie)
-    Amazon::Movies.new.get_url(movie)
+  def invalid_watch?(netflix, amazon)
+    netflix.nil? && amazon.nil?
   end
 
   def decorate(data)

@@ -20,6 +20,8 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @netflix_url = Netflix::Movies.new.get_url(@movie)
+    @amazon_url = Amazon::Movies.new(@movie).movie_url
   end
 
   private
@@ -39,3 +41,5 @@ class MoviesController < ApplicationController
     "Found #{result_count} movies according to the search term '#{search_term}'"
   end
 end
+
+

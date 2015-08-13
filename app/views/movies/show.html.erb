@@ -16,26 +16,26 @@
       <% unless @movie.genre == "N/A" %>
         <label>Genre</label><span><%= decorate(@movie.genre) %></span>
       <% end %>
+      <% unless @movie.imdb_rating == "N/A" %>
+        <%= image_tag("imdb") %>
+        <%= link_to(imdb_link(@movie.imdb_ID)) do %>
+          <span class="rate"> <%= @movie.imdb_rating %> </span></a>
+        <% end %>
+      <% end %>
+      <% unless @movie.tomato_meter == "N/A" %>
+        <%= image_tag("tomato") %>
+        <span class="rate"> <%= @movie.tomato_meter %> </span>
+      <% end %>
     </div>
+    <div>
     <% if @movie.poster == "N/A" %>
       <%= image_tag("no-image", class: "img-thumbnail") %>
     <% else %>
-      <img src= "#{@movie.poster}" class="img-thumbnail"/>
+      <%= image_tag(@movie.poster, class: "img-thumbnail") %>
     <% end %>
     <blockquote class="plot">
       <p><%= @movie.plot %></p>
     </blockquote>
-    <div class="movie-score">
-      <h4>
-        <% unless @movie.imdb_rating == "N/A" %>
-          <%= image_tag("imdb") %>
-          <span class="rate"> <%= @movie.imdb_rating %> </span>
-        <% end %>
-        <% unless @movie.tomato_meter == "N/A" %>
-          <%= image_tag("tomato") %>
-          <span class="rate"> <%= @movie.tomato_meter %> </span>
-        <% end %>
-      </h4>
     </div>
     <div class="movie-whatch-link">
       <div class="panel panel-default">
@@ -43,19 +43,11 @@
           <h3 class="panel-title">Watch Now</h3>
         </div>
         <div class="panel-body">
-          <% unless available_watch?(@movie) %>
+          <% if invalid_watch?(@netflix_url, @amazon_url) %>
             <p class="text-danger">Sorry, Unavailable watch</p>
           <% end %>
-          <% if netflix_has?(@movie) %>
-            <a href="#{netflix_has?(@movie)}">
-              Netflix <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-            </a>
-          <% end %>
-          <% if amazon_has?(@movie) %>
-            <a href="#{amazon_has?(@movie)}">
-              Amazon <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-            </a>
-          <% end %>
+          <%= link_to image_tag("netflix"), @netflix_url, class: "netflix"  unless @netflix_url.nil? %>
+          <%= link_to image_tag("amazon"), @amazon_url unless @amazon_url.nil? %>
         </div>
       </div>
     </div>
