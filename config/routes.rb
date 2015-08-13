@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get "movies/:id", to: :show, as: "movie"
   end
 
-  root 'movies#home'
+  root 'movies#main'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

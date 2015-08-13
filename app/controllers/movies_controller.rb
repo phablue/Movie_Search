@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  def home
+  def main
     @active_header = false
   end
 
