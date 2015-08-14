@@ -1,55 +1,67 @@
 <div class="container detail">
-  <div class="page-header">
-    <h1 class="movie-title">
-      <%= @movie.title %>
-      <small> <%= decorate(@movie.year) %> </small>
-    </h1>
-  </div>
-  <div class="page-body">
-    <div class="movie-info">
-      <% unless @movie.rated == "N/A" %>
-        <label>Rated</label><span><%= decorate(@movie.rated) %></span>
-      <% end %>
-      <% unless @movie.runtime == "N/A" %>
-        <label>RunTime</label><span><%= decorate(@movie.runtime) %></span>
-      <% end %>
-      <% unless @movie.genre == "N/A" %>
-        <label>Genre</label><span><%= decorate(@movie.genre) %></span>
-      <% end %>
-      <% unless @movie.imdb_rating == "N/A" %>
-        <%= image_tag("imdb") %>
-        <%= link_to(imdb_link(@movie.imdb_ID)) do %>
-          <span class="rate"> <%= @movie.imdb_rating %> </span></a>
-        <% end %>
-      <% end %>
-      <% unless @movie.tomato_meter == "N/A" %>
-        <%= image_tag("tomato") %>
-        <span class="rate"> <%= @movie.tomato_meter %> </span>
-      <% end %>
-    </div>
-    <div>
-    <% if @movie.poster == "N/A" %>
-      <%= image_tag("no-image", class: "img-thumbnail") %>
-    <% else %>
-      <%= image_tag(@movie.poster, class: "img-thumbnail") %>
+  <!-- Movie Title -->
+  <h1 class="page-header movie-title">
+    <%= @movie.title %>
+    <small> <%= decorate(@movie.year) %> </small>
+  </h1>
+
+  <!-- Movie Information -->
+  <% unless @movie.rated == "N/A" %>
+    <label class="movie-info">Rated</label>
+    <span class="info"><%= decorate(@movie.rated) %></span>
+  <% end %>
+  <% unless @movie.runtime == "N/A" %>
+    <label class="movie-info">RunTime</label>
+    <span class="info"><%= decorate(@movie.runtime) %></span>
+  <% end %>
+  <% unless @movie.genre == "N/A" %>
+    <label class="movie-info">Genre</label>
+    <span class="info"><%= decorate(@movie.genre) %></span>
+  <% end %>
+
+  <!-- Movie Score -->
+  <% unless @movie.imdb_rating == "N/A" %>
+    <%= image_tag "imdb" %>
+    <%= link_to imdb_link(@movie.imdb_ID) do %>
+      <span class="rate"> <%= @movie.imdb_rating %> </span></a>
     <% end %>
-    <blockquote class="plot">
-      <p><%= @movie.plot %></p>
-    </blockquote>
+  <% end %>
+  <% unless @movie.tomato_meter == "N/A" %>
+    <%= image_tag "tomato" %>
+    <span class="rate"> <%= @movie.tomato_meter %> </span>
+  <% end %><br>
+
+  <!-- Movie Poster -->
+  <% if @movie.poster == "N/A" %>
+    <%= image_tag "no-image", class: "img-thumbnail" %>
+  <% else %>
+    <%= image_tag @movie.poster, class: "img-thumbnail" %>
+  <% end %>
+
+  <!-- Movie Plot -->
+  <blockquote class="plot">
+    <p><%= @movie.plot %></p>
+  </blockquote>
+
+  <!-- Movie Trailer -->
+  <% unless trailer_url(@movie).nil? %>
+    <button class="trailer" data-id="trailer" data-url=<%= trailer_url(@movie) %>>
+      Watch Trailer
+      <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+    </button>
+  <% end %>
+
+  <!-- Movie Watch Link -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Watch Now</h3>
     </div>
-    <div class="movie-whatch-link">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Watch Now</h3>
-        </div>
-        <div class="panel-body">
-          <% if invalid_watch?(@netflix_url, @amazon_url) %>
-            <p class="text-danger">Sorry, Unavailable watch</p>
-          <% end %>
-          <%= link_to image_tag("netflix"), @netflix_url, class: "netflix"  unless @netflix_url.nil? %>
-          <%= link_to image_tag("amazon"), @amazon_url unless @amazon_url.nil? %>
-        </div>
-      </div>
+    <div class="panel-body">
+      <% if invalid_watch?(@netflix_url, @amazon_url) %>
+        <p class="text-danger">Sorry, Unavailable watch</p>
+      <% end %>
+      <%= link_to image_tag("netflix"), @netflix_url, class: "netflix"  unless @netflix_url.nil? %>
+      <%= link_to image_tag("amazon"), @amazon_url unless @amazon_url.nil? %>
     </div>
   </div>
 </div>

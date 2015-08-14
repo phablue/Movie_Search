@@ -8,11 +8,14 @@ gem "netflix_roulette"
 gem "vacuum"
 gem "nokogiri"
 
+gem 'google-api-client', '>0.7'
+
 gem "sass-rails", "~> 5.0"
 gem "bootstrap-sass"
 gem "jquery-rails"
 gem "coffee-rails", "~> 4.1.0"
 gem "underscore-rails"
+gem 'magnific-popup-rails'
 gem "uglifier", ">= 1.3.0"
 gem "turbolinks"
 

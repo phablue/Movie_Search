@@ -1,11 +1,11 @@
 require 'rails_helper'
 require "#{Rails.root}/lib/modules/omdb_api.rb"
 
-describe OmdbApi::Movies do
+describe Omdb::Movies do
   fixtures :movies
 
   before(:each) do 
-    @omdb_movies = OmdbApi::Movies.new
+    @omdb_movies = Omdb::Movies.new
 
     stub_request(:get, @omdb_movies.url)
       .with(query: { i: 'tt2294630', tomatoes: 'true' })

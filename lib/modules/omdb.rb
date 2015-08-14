@@ -1,4 +1,4 @@
-module OmdbApi
+module Omdb
   class Movies
     attr_reader :url
     include HTTParty
