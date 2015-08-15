@@ -10,6 +10,7 @@ module Google
       @url = "https://www.youtube.com/watch?v=#{get_video_id}"
     end
 
+    private
     def get_video_id
       begin
         search.data.items[0].id.videoId
