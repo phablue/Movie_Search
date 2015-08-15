@@ -6,12 +6,12 @@ module Amazon
       configure()
     end
 
-    def movie_url
-      url(movie_asin) unless movie_asin.nil?
+    def url
+      movie_url(movie_asin) unless movie_asin.nil?
     end
 
     private
-    def url(movie_asin)
+    def movie_url(movie_asin)
       "http://www.amazon.com/gp/product/#{movie_asin}"
     end
 

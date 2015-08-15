@@ -3,6 +3,10 @@ module MoviesHelper
     "http://www.imdb.com/title/#{imdb_id}"
   end
 
+  def tomatoes_link(imdb_id)
+    RottenTomatoes::Movies.new(imdb_id).link
+  end
+
   def trailer_url(movie)
     Google::Youtube.new(movie.title).url
   end

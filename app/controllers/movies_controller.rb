@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @netflix_url = Netflix::Movies.new.get_url(@movie)
-    @amazon_url = Amazon::Movies.new(@movie).movie_url
+    @netflix_url = Netflix::Movies.new(@movie).url
+    @amazon_url = Amazon::Movies.new(@movie).url
   end
 end

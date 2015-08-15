@@ -1,20 +1,24 @@
 module Netflix
   class Movies
-    def get_url(movie_title)
-      watch_url(movie_title) if existed?(movie_title)
+    def initialize(movie)
+      @movie = movie
+    end
+
+    def url
+      watch_url if existed?
     end
 
     private
-    def existed?(movie_title)
-      get_id(movie_title) != "Unable to locate data"
+    def existed?
+      get_id != "Unable to locate data"
     end
 
-    def watch_url(movie_title)
-      "http://www.netflix.com/watch/#{get_id(movie_title)}"
+    def watch_url
+      "http://www.netflix.com/watch/#{get_id}"
     end
 
-    def get_id(movie_title)
-      NetflixRoulette.get_netflix_id(movie_title)
+    def get_id
+      NetflixRoulette.get_netflix_id(@movie.title)
     end
   end
 end

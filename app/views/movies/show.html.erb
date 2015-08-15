@@ -28,7 +28,9 @@
   <% end %>
   <% unless @movie.tomato_meter == "N/A" %>
     <%= image_tag "tomato" %>
-    <span class="rate"> <%= @movie.tomato_meter %> </span>
+    <%= link_to tomatoes_link(@movie.imdb_ID) do %>
+      <span class="rate"> <%= @movie.tomato_meter %> </span>
+    <% end %>
   <% end %><br>
 
   <!-- Movie Poster -->
