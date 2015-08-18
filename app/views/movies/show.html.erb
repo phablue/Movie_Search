@@ -3,6 +3,10 @@
   <h1 class="page-header movie-title">
     <%= @movie.title %>
     <small> <%= decorate(@movie.year) %> </small>
+    <!-- Add My List -->
+    <%= link_to my_list_path, method: :post, data: {id: "addList"} do %>
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+    <% end %>
   </h1>
 
   <!-- Movie Information -->

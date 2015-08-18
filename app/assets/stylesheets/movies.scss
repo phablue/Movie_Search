@@ -59,6 +59,23 @@ table { color: #292C37; }
   font-weight: 700;
 }
 
+/** Add My List **/
+.glyphicon-plus-sign {
+  color: #ccc;
+  font-size: 22px;
+  margin-left: 20px;
+  top: 3px !important;
+}
+
+.glyphicon-plus-sign:hover { color: #52504E; }
+
+.add-list {
+  color: #52504E;
+  font-size: 16px;
+  margin-left: -7px;
+}
+
+/** Movie Information **/
 .movie-info {
   background-color: #eee;
   border: 1px solid #ccc;
@@ -92,6 +109,7 @@ table { color: #292C37; }
   width: 200px;
 }
 
+/** Movie Plot **/
 .plot {
   display: inline-block;
   font-family: 'Lato', sans-serif;
@@ -100,6 +118,7 @@ table { color: #292C37; }
   position: absolute;
 }
 
+/** Movie Trailer **/
 .trailer {
   background-color: #52504E;
   border: 1px solid #222;
@@ -114,6 +133,7 @@ table { color: #292C37; }
   text-align: center;
 }
 
+/** Watch link **/
 .panel-title {
   color: #555 !important;
   font-family: 'Ubuntu', sans-serif;
