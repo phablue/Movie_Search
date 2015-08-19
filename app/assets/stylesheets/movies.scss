@@ -23,7 +23,6 @@
 
 /* Result Page */
 .result {
-  font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   margin-top: 80px;
   margin-left: 10%;
@@ -52,19 +51,24 @@ table { color: #292C37; }
 .detail { margin-top: 50px; }
 
 /** Add My List **/
-.glyphicon-plus-sign {
+.glyphicon-plus-sign, .glyphicon-ok-sign {
   color: #ccc;
   font-size: 22px;
   margin-left: 20px;
   top: 3px !important;
 }
 
-.glyphicon-plus-sign:hover { color: #52504E; }
-
-.add-list {
+.glyphicon-plus-sign:hover, .glyphicon-ok-sign:hover {
   color: #52504E;
+  cursor: pointer;
+}
+
+.list {
+  color: #52504E;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
-  margin-left: -7px;
+  font-weight: bold;
+  margin-left: 4px;
 }
 
 /** Movie Information **/

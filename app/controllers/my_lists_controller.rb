@@ -4,7 +4,8 @@ class MyListsController < ApplicationController
   end
 
   def create
-    redirect_to :back
+    # @my_list = MyList.new(movie_id: params[:movie_id])
+    render json: params[:movie_id].nil? ? false : true
   end
 
   def destroy

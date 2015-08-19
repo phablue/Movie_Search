@@ -2,13 +2,13 @@ class UI
   constructor: ->
 
   active: ->
-    @addIconDisplay()
+    @mouseOverListIcon()
     @enterKeyactivation()
     @popUpTrailer()
 
-  addIconDisplay: ->
-    $("[data-id='addList']").hover(
-      -> $(this).append( $("<span class='add-list'>Add To My List</span>") ),
+  mouseOverListIcon: ->
+    $(".add-list-btn").hover(
+      => $(".add-list-btn").append( @listComment() ),
       -> $(this).find("span:last").remove()
     )
 
@@ -21,5 +21,17 @@ class UI
       items:
         src: $("[data-id='trailer']").data("url")
       type: 'iframe'
+
+  listComment: ->
+    "<span class='list'>#{@listIconAction()} My List</span>"
+
+  listIconAction: ->
+    $(".add-list-btn .glyphicon").data("id").replace("-", " ")
+
+  confirmAdditionIcon: ->
+    '<span class="glyphicon glyphicon-ok-sign" data-id="Remove-From" aria-hidden="true"></span>'
+
+  errorMessage: ->
+    'Sorry, Something worng. Try Again'
 
 window.UI = UI

@@ -4,9 +4,9 @@
     <%= @movie.title %>
     <small> <%= decorate(@movie.year) %> </small>
     <!-- Add My List -->
-    <%= link_to my_list_path, method: :post, data: {id: "addList"} do %>
-      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-    <% end %>
+    <label class="add-list-btn" data-movie-id=<%=@movie.id%>>
+      <span class="glyphicon glyphicon-plus-sign" data-id="Add-To" aria-hidden="true"></span>
+    </label>
   </h1>
 
   <!-- Movie Information -->
