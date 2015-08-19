@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507195418) do
+ActiveRecord::Schema.define(version: 20150818232816) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20150507195418) do
     t.string   "box_office"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "my_lists", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

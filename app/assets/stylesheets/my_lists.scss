@@ -1,1 +1,25 @@
-.my-list { margin-top: 50px; }
+.my-list { margin: 50px 0; }
+
+.bg-info {
+  background-color: #eee !important;
+  padding: 10px;
+}
+
+.poster {
+  border-radius: 6px;
+  height: 160px;
+  margin: 0 5px;
+  overflow: hidden;
+  width: 260px;
+  transition: all 1s ease;
+}
+
+.poster:hover {
+  margin: 0 20px;
+  transform:scale(1.2);
+}
+
+.poster img {
+  margin-top: -90px;
+  margin-left: -20px;
+}

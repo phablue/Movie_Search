@@ -2,6 +2,9 @@ class UI
   constructor: ->
 
   active: ->
+    @addIconDisplay()
+    @enterKeyactivation()
+    @popUpTrailer()
 
   addIconDisplay: ->
     $("[data-id='addList']").hover(

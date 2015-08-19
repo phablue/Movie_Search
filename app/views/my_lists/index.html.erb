@@ -1,6 +1,17 @@
 <div class="container my-list">
-  <!-- Movie Title -->
-  <h1 class="page-header">
-    My List
-  </h1>
+  <h1 class="page-header"> My List </h1>
+  <% unless @my_lists.empty? %>
+    <p class="bg-info"> Don't have any movies in your List </p>
+  <% end %>
+  <ul class="list-inline">
+    <% @my_lists.each do |my_list| %>
+      <li>
+        <%= link_to movie_path(my_list.movie_id) do %>
+          <div class="poster">
+            <%= image_tag movie_poster(my_list) %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>

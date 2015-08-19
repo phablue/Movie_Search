@@ -1,5 +1,5 @@
 movieTime = ->
-  (new Movie).search()
+  (new Movies).search()
   (new UI).active()
 
 $ ->
