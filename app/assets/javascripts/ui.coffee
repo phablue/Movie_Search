@@ -1,16 +1,18 @@
 class UI
   constructor: ->
+    @movie = new Movies(this)
 
-  active: ->
+  enviroment: ->
     @mouseOverListIcon()
     @enterKeyactivation()
     @popUpTrailer()
+    @movie.search()
+    @movie.addToMyList()
 
   mouseOverListIcon: ->
     $(".add-list-btn").hover(
       => $(".add-list-btn").append( @listComment() ),
-      -> $(this).find("span:last").remove()
-    )
+      -> $(this).find("span:last").remove())
 
   enterKeyactivation: ->
     $("[data-id='searchWord']").keyup (e) ->
@@ -22,14 +24,16 @@ class UI
         src: $("[data-id='trailer']").data("url")
       type: 'iframe'
 
+  changeMyListIcon: (remove, add, dataID) ->
+    $('.add-list-btn .glyphicon').removeClass(remove).addClass(add)
+    $(".#{add}").attr('data-id' , dataID)
+    $('.list').hide()
+
   listComment: ->
     "<span class='list'>#{@listIconAction()} My List</span>"
 
   listIconAction: ->
-    $(".add-list-btn .glyphicon").data("id").replace("-", " ")
-
-  confirmAdditionIcon: ->
-    '<span class="glyphicon glyphicon-ok-sign" data-id="Remove-From" aria-hidden="true"></span>'
+    $(".add-list-btn span").attr("data-id").replace("-", " ")
 
   errorMessage: ->
     'Sorry, Something worng. Try Again'

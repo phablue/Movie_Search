@@ -4,13 +4,13 @@ class MyListsController < ApplicationController
   end
 
   def create
-    # @my_list = MyList.new(movie_id: params[:movie_id])
-    render json: params[:movie_id].nil? ? false : true
+    @my_list = MyList.new(movie_id: params[:movie_id])
+    render json: @my_list.save ? @my_list : false
   end
 
   def destroy
-    @my_list = MyList.find(params[:id])
+    @my_list = MyList.find(params[:list_id])
     @my_list.destroy
-    redirect_to :back
+    render nothing: true
   end
 end

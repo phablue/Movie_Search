@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   controller :my_lists do
     get "my-list", to: :index
     post "my-list", to: :create
-    delete "my-list/:id", to: :destroy
+    delete "my-list", to: :destroy
   end
 
   root 'movies#main'
