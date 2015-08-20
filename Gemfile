@@ -7,6 +7,7 @@ gem "httparty"
 gem "netflix_roulette"
 gem "vacuum"
 gem "nokogiri"
+gem "devise"
 
 gem 'google-api-client', '>0.7'
 

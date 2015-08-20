@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
   controller :movies do
     get "result", to: :result
     get "movies/:id", to: :show, as: "movie"

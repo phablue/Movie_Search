@@ -1,4 +1,6 @@
 class MyListsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @my_lists = MyList.all
   end
