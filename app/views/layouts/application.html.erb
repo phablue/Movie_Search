@@ -8,7 +8,9 @@
 </head>
 <body>
   <%= render 'layouts/header' if @active_header %>
-    <%= yield %>
+    <div class="body">
+      <%= yield %>
+    </div>
   <%= render 'layouts/footer' %>
 </body>
 </html>

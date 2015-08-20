@@ -1,0 +1,60 @@
+.form-signup, .form-signin, .password {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.form-signin { max-width: 330px; }
+
+.form-signup, .password { max-width: 600px; }
+
+.form-heading {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-signup .form-control,
+.form-signin .form-control {
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.checkbox input[type="checkbox"] { margin-left: 5px !important; }
+
+.password .btn-primary,
+.form-signup .btn-primary,
+.form-signin .btn-primary {
+  background-color: #E1E1E1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #413D3D;
+  margin-bottom: 10px;
+}
+
+.password .btn-primary:hover,
+.form-signup .btn-primary:hover,
+.form-signin .btn-primary:hover {
+  background-color: #E1E1E1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #413D3D;
+  margin-bottom: 10px;
+}
+
+#error_explanation {
+  background-color: #f2dede;
+  padding: 15px;
+}
+
+#error_explanation h2 {
+  color: #BD1550;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+#error_explanation li {
+  color: #6D131A;
+  font-size: 15px;
+}

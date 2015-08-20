@@ -2,7 +2,7 @@
 .jumbotron {
   background-color: white !important;
   font-family: 'Limelight', cursive;
-  margin-top: -50px;
+  margin-top: -100px;
   text-align: center;
 }
 
@@ -24,7 +24,7 @@
 /* Result Page */
 .result {
   font-size: 16px;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-left: 10%;
   max-width: 80%;
   max-height: 100%;
@@ -48,8 +48,6 @@ table { color: #292C37; }
 }
 
 /* Movie Show Page */
-.detail { margin-top: 50px; }
-
 /** Add My List **/
 .glyphicon-plus-sign, .glyphicon-ok-sign {
   color: #ccc;

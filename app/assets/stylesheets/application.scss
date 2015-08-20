@@ -13,6 +13,8 @@ table { margin-top: 30px; }
 
 body { font-family: 'Ubuntu', sans-serif; }
 
+.body { margin-top: 50px; }
+
 /* Header */
 .navbar-fixed-top { background-color: #31302F; }
 
@@ -22,6 +24,30 @@ body { font-family: 'Ubuntu', sans-serif; }
 }
 
 .navbar-brand { font-size: 30px; }
+
+.navbar-form { float: right; }
+
+/** Accoount **/
+.account {
+  float: right;
+  margin-top: 10px;
+  margin-left: -5px;
+}
+.glyphicon-user {
+  color: #F6F6F6;
+  font-size: 22px;
+  padding-left: 20px;
+  top: 5px !important;
+}
+
+.user {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: -15px;
+  position: relative;
+  top: -4px;
+}
 
 /* Footer */
 .back-to-top {

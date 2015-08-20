@@ -1,0 +1,7 @@
+<div class="account">
+<%= link_to user_signed_in? ? "" : new_user_session_path do %>
+  <span class="glyphicon glyphicon-user" aria-hidden="true">
+    <span class="user"><%= user_signed_in? ? "username" : "Sign in" %></span>
+  </span>
+<% end %>
+</div>
