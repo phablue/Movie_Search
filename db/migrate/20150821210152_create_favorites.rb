@@ -1,6 +1,6 @@
-class CreateMyLists < ActiveRecord::Migration
+class CreateFavorites < ActiveRecord::Migration
   def change
-    create_table :my_lists do |t|
+    create_table :favorites do |t|
       t.integer :movie_id
       t.integer :user_id
 

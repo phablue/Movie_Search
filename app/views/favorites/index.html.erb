@@ -1,14 +1,14 @@
 <div class="container">
   <h1 class="page-header"> My List </h1>
-  <% if @my_lists.nil? %>
+  <% if @favorites.nil? %>
     <p class="bg-info"> Don't have any movies in your List </p>
   <% end %>
   <ul class="list-inline">
-    <% @my_lists.each do |my_list| %>
+    <% @favorites.each do |favorite| %>
       <li>
-        <%= link_to movie_path(my_list.movie_id) do %>
+        <%= link_to movie_path(favorite.movie_id) do %>
           <div class="poster">
-            <%= image_tag movie_poster(my_list) %>
+            <%= image_tag movie_poster(favorite) %>
           </div>
         <% end %>
       </li>

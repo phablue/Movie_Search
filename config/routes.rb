@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
   controller :movies do
-    get "result", to: :result
-    get "movies/:id", to: :show, as: "movie"
+    get "result", action: :result
+    get "movies/:id", action: :show, as: "movie"
   end
 
-  controller :my_lists do
-    get "my-list", to: :index
-    post "my-list", to: :create
-    delete "my-list", to: :destroy
+  controller :favorites do
+    get "my-list", action: :index
+    post "my-list", action: :create
+    delete "my-list", action: :destroy
   end
 
   root 'movies#main'
