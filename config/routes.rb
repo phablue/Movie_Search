@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  devise_for :users, path: "", 
-              path_names: {
-              sign_in: 'sign-in', sign_out: 'sign-out', password: 'secret',
-              confirmation: 'verification', unlock: 'unblock', registration: 'register',
-              sign_up: 'sign-up' }
+  devise_for :users
+
+  devise_scope :user do
+    get "sign_in", to: "devise/sessions#new"
+  end
 
   controller :movies do
     get 'result',     action: :result

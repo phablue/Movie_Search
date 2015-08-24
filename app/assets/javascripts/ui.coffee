@@ -6,6 +6,7 @@ class UI
     @mouseOverListIcon()
     @enterKeyactivation()
     @popUpTrailer()
+    @dropDownMenu()
     @movie.search()
     @movie.addToMyList()
 
@@ -28,6 +29,11 @@ class UI
     $('.add-list-btn .glyphicon').removeClass(remove).addClass(add)
     $(".#{add}").attr('data-id' , dataID)
     $('.list').hide()
+
+  dropDownMenu: ->
+    $("[data-id='userMenu']").hover(
+      -> $("[data-id='dropDown']").toggleClass("open"),
+      -> $("[data-id='dropDown']").toggleClass("open"))
 
   invalidSearchWord: ->
     @searchWord().length < 2 || _.isNull(@searchWord())

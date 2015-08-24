@@ -31,13 +31,23 @@ body { font-family: 'Ubuntu', sans-serif; }
 .account {
   float: right;
   margin-top: 10px;
-  margin-left: -5px;
 }
+
 .glyphicon-user {
   color: #F6F6F6;
   font-size: 22px;
   padding-left: 20px;
   top: 5px !important;
+}
+
+.dropdown-menu {
+  font-family: 'Ubuntu', sans-serif;
+  top: 100%;
+  left: 20%;
+}
+
+.open {
+  display: block;
 }
 
 .user {

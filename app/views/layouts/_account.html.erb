@@ -1,7 +1,18 @@
 <div class="account">
-<%= link_to user_signed_in? ? "" : new_user_session_path do %>
-  <span class="glyphicon glyphicon-user" aria-hidden="true">
-    <span class="user"><%= user_signed_in? ? "username" : "Sign in" %></span>
-  </span>
-<% end %>
+  <li class="dropdown" data-id="userMenu">
+    <span class="glyphicon glyphicon-user" aria-hidden="true">
+    <% if user_signed_in? %>
+      <span class="user"><%= current_user.name %> <span class="caret"></span></span>
+      <ul class="dropdown-menu" data-id="dropDown">
+        <li><%= link_to "My Profile", edit_user_registration_path %></li>
+        <li><%= link_to "My List", "" %></li>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+      </ul>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <span class="user"> Sign in </span>
+      <% end %>
+    <% end %>
+  </li>
 </div>
