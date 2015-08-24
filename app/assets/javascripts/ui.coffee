@@ -29,6 +29,9 @@ class UI
     $(".#{add}").attr('data-id' , dataID)
     $('.list').hide()
 
+  invalidSearchWord: ->
+    @searchWord().length < 2 || _.isNull(@searchWord())
+
   searchWord: ->
     $("[data-id='searchWord']").val()
 
@@ -38,7 +41,10 @@ class UI
   listIconAction: ->
     $(".add-list-btn span").attr("data-id").replace("-", " ")
 
-  errorMessage: ->
+  searchErrorMessage: ->
+     "The search word must be more than 2 characters."
+
+  AddListErrorMessage: ->
     'Sorry, Something worng. Try Again'
 
 window.UI = UI

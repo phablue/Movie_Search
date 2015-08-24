@@ -4,6 +4,12 @@ class Movies
 
   search: ->
     $("[data-id='searchBTN']").click =>
+      @results()
+
+  results: ->
+    if @ui.invalidSearchWord()
+      alert(@ui.searchErrorMessage())
+    else
       window.location = "/result?q=#{@ui.searchWord()}"
 
   addToMyList: ->
@@ -26,7 +32,7 @@ class Movies
     if data.status == 'unauth'
       window.location = '/sign-in'
     else if data.status == false
-      alert(@ui.errorMessage())
+      alert(@ui.AddListErrorMessage())
     else
       @convertRemoveListIcon(data)
 
