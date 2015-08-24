@@ -4,13 +4,7 @@ class Movies
 
   search: ->
     $("[data-id='searchBTN']").click =>
-      @redirectResultPage()
-
-  redirectResultPage: ->
-    window.location = "/result?q=#{@searchWord()}"
-
-  searchWord: ->
-    $("[data-id='searchWord']").val()
+      window.location = "/result?q=#{@ui.searchWord()}"
 
   addToMyList: ->
     $("[data-id='Add-To']").bind( "click", @requestAddList );
@@ -26,13 +20,15 @@ class Movies
       url: "/my-list",
       data: { list_id: e.data.list_id },
       type: "DELETE"
-    ).done(@convertToAddListIcon())
+    ).done(@convertToAddListIcon)
 
   checkAdditionResult: (data) =>
-    unless _.isNull(data)
-      @convertRemoveListIcon(data)
-    else
+    if data.status == 'unauth'
+      window.location = '/sign-in'
+    else if data.status == false
       alert(@ui.errorMessage())
+    else
+      @convertRemoveListIcon(data)
 
   convertRemoveListIcon: (data) ->
     $("[data-id='Add-To']").unbind( "click", @requestAddListID );

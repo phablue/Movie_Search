@@ -29,6 +29,9 @@ class UI
     $(".#{add}").attr('data-id' , dataID)
     $('.list').hide()
 
+  searchWord: ->
+    $("[data-id='searchWord']").val()
+
   listComment: ->
     "<span class='list'>#{@listIconAction()} My List</span>"
 
