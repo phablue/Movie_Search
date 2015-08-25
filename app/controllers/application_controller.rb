@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_action  :store_location
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :active_header
 
   protected
@@ -26,6 +27,10 @@ class ApplicationController < ActionController::Base
         !request.xhr?) # don't store ajax calls
       session[:previous_url] = request.fullpath 
     end
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :name
   end
 
   def after_sign_in_path_for(resource)
