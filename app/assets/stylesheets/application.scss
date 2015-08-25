@@ -46,9 +46,9 @@ body { font-family: 'Ubuntu', sans-serif; }
   left: 20%;
 }
 
-.open {
-  display: block;
-}
+.open { display: block; }
+
+.dropdown { cursor: pointer; }
 
 .user {
   font-family: 'Ubuntu', sans-serif;

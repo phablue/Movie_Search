@@ -30,9 +30,10 @@ class UI
       -> $(this).find("span:last").remove())
 
   dropDownUserMenu: ->
-    $("[data-id='userMenu']").hover(
-      -> $("[data-id='dropDown']").toggleClass("open"),
-      -> $("[data-id='dropDown']").toggleClass("open"))
+    $("[data-id='userMenu']").click ->
+      $("[data-id='dropDown']").toggleClass("open")
+      $("[data-id='dropDown']").mouseleave ->
+        $("[data-id='dropDown']").toggleClass("open")
 
   enterKeyactivation: ->
     $("[data-id='searchWord']").keyup (e) ->
