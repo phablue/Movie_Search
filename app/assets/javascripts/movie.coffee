@@ -37,13 +37,13 @@ class Movies
       @convertRemoveListIcon(data)
 
   convertRemoveListIcon: (data) =>
-    $("[data-id='Add-To']").unbind( "click", @requestAddListID );
+    $("[data-id='Add-To']").unbind( "click", @requestAddListID )
     @ui.changeMyListIcon("glyphicon-plus-sign", "glyphicon-ok-sign", "Remove-From")
     @removeFromMyList(data)
 
   convertToAddListIcon: =>
     @ui.changeMyListIcon("glyphicon-ok-sign", "glyphicon-plus-sign", "Add-To")
-    $("[data-id='Add-To']").unbind( "click", @requestRemoveList );
+    $("[data-id='Add-To']").unbind( "click", @requestRemoveList )
     @addToMyList()
 
   movieID: ->

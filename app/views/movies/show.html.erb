@@ -5,10 +5,10 @@
     <small> <%= decorate(@movie.year) %> </small>
     <!-- Add My List -->
     <label class="add-list-btn" data-movie-id=<%=@movie.id%>>
-      <% unless add_to_list?(@movie) %>
+      <% if add_to_list?(@movie).nil? %>
         <span class="glyphicon glyphicon-plus-sign" data-id="Add-To" aria-hidden="true"></span>
       <% else %>
-        <span class="glyphicon glyphicon-ok-sign" data-id="Remove-From" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-ok-sign" data-id="Remove-From" aria-hidden="true" data-list-id=<%= add_to_list?(@movie).id %> ></span>
       <% end %>
     </label>
   </h1>

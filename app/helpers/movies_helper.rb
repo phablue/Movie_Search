@@ -20,6 +20,6 @@ module MoviesHelper
   end
 
   def add_to_list?(movie)
-    current_user.favorites.all.pluck(:movie_id).include?(movie.id)
+    current_user.favorites.where(movie_id: movie.id).first
   end
 end

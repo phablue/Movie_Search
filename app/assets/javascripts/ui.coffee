@@ -6,18 +6,12 @@ class UI
     @mouseOverListIcon()
     @enterKeyactivation()
     @popUpTrailer()
-    @dropDownMenu()
-    @movie.search()
+    @dropDownUserMenu()
+    @myListActive()
+
+  myListActive: ->
     @movie.addToMyList()
-
-  mouseOverListIcon: ->
-    $(".add-list-btn").hover(
-      => $(".add-list-btn").append( @listComment() ),
-      -> $(this).find("span:last").remove())
-
-  enterKeyactivation: ->
-    $("[data-id='searchWord']").keyup (e) ->
-      $("[data-id='searchBTN']").click() if(e.keyCode == 13)
+    @movie.removeFromMyList(@addedMovieListID())
 
   popUpTrailer: ->
     $("[data-id='trailer']").magnificPopup
@@ -30,13 +24,25 @@ class UI
     $(".#{add}").attr('data-id' , dataID)
     $('.list').hide()
 
-  dropDownMenu: ->
+  mouseOverListIcon: ->
+    $(".add-list-btn").hover(
+      => $(".add-list-btn").append( @listComment() ),
+      -> $(this).find("span:last").remove())
+
+  dropDownUserMenu: ->
     $("[data-id='userMenu']").hover(
       -> $("[data-id='dropDown']").toggleClass("open"),
       -> $("[data-id='dropDown']").toggleClass("open"))
 
+  enterKeyactivation: ->
+    $("[data-id='searchWord']").keyup (e) ->
+      $("[data-id='searchBTN']").click() if(e.keyCode == 13)
+
   invalidSearchWord: ->
     @searchWord().length < 2 || _.isNull(@searchWord())
+
+  addedMovieListID: ->
+    {id: $("[data-id='Remove-From']").data("list-id")}
 
   searchWord: ->
     $("[data-id='searchWord']").val()
