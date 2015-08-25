@@ -2,11 +2,11 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @favorites = Favorite.all
+    @favorites = Favorite.where(user_id: current_user.id)
   end
 
   def create
-    @favorite = Favorite.new(movie_id: params[:movie_id])
+    @favorite = Favorite.new(movie_id: params[:movie_id], user_id: current_user.id)
     render json: @favorite.save ? @favorite : {status: false}
   end
 
