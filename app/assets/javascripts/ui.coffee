@@ -7,6 +7,7 @@ class UI
     @enterKeyactivation()
     @popUpTrailer()
     @dropDownUserMenu()
+    @movie.search()
     @myListActive()
 
   myListActive: ->

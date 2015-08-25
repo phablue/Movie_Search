@@ -6,11 +6,14 @@
   <ul class="list-inline">
     <% @favorites.each do |favorite| %>
       <li>
-        <%= link_to movie_path(favorite.movie_id) do %>
-          <div class="poster">
+        <div class="poster">
+          <%= link_to my_list_path(list_id: favorite.id), method: :delete do %>
+            <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+          <% end %>
+          <%= link_to movie_path(favorite.movie_id) do %>
             <%= image_tag movie_poster(favorite) %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>

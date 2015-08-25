@@ -13,6 +13,9 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find(params[:list_id])
     @favorite.destroy
-    render nothing: true
+    respond_to do |format|
+      format.js { render nothing: true }
+      format.html { redirect_to :back }
+    end
   end
 end
