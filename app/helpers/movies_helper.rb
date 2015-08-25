@@ -19,7 +19,11 @@ module MoviesHelper
     data == "N/A" ? "" : data
   end
 
-  def add_to_list?(movie)
-    current_user.favorites.where(movie_id: movie.id).first
+  def additional_unavailable?(movie)
+    favorite(movie).nil?
+  end
+
+  def favorite(movie)
+    current_user.favorites.where(movie_id: movie.id)[0] if user_signed_in?
   end
 end

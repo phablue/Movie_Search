@@ -15,6 +15,14 @@ body { font-family: 'Ubuntu', sans-serif; }
 
 .body { margin-top: 50px; }
 
+.form-horizontal .control-label { text-align: left; }
+
+.bg-danger {
+  color: #BD1550;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
 /* Header */
 .navbar-fixed-top { background-color: #31302F; }
 
@@ -51,6 +59,7 @@ body { font-family: 'Ubuntu', sans-serif; }
 .dropdown { cursor: pointer; }
 
 .user {
+  color: #F6F6F6;
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   font-weight: bold;

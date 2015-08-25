@@ -1,4 +1,4 @@
-.form-signup, .form-signin, .password {
+.form-signup, .form-signin, .password, .user-account {
   font-family: 'Ubuntu', sans-serif;
   margin: 0 auto;
   padding: 15px;
@@ -23,6 +23,7 @@
 
 .checkbox input[type="checkbox"] { margin-left: 5px !important; }
 
+.user-account .btn-primary,
 .password .btn-primary,
 .form-signup .btn-primary,
 .form-signin .btn-primary {
@@ -33,6 +34,7 @@
   margin-bottom: 10px;
 }
 
+.user-account .btn-primary:hover,
 .password .btn-primary:hover,
 .form-signup .btn-primary:hover,
 .form-signin .btn-primary:hover {

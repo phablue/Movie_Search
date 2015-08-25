@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:list_id])
     @favorite.destroy
     respond_to do |format|
-      format.js { render nothing: true }
+      format.json { render nothing: true }
       format.html { redirect_to :back }
     end
   end
