@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(movie_id: params[:movie_id], user_id: current_user.id)
+    @favorite = current_user.favorites.build(movie_id: params[:movie_id], user_id: current_user.id)
     render json: @favorite.save ? @favorite : {status: false}
   end
 

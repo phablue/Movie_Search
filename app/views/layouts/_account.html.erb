@@ -1,11 +1,11 @@
-<div class="account">
-  <li class="dropdown" data-id="userMenu">
+<div class="account" data-id="userMenu">
+  <li class="dropdown">
     <span class="glyphicon glyphicon-user" aria-hidden="true">
     <% if user_signed_in? %>
       <span class="user"><%= current_user.name %> <span class="caret"></span></span>
       <ul class="dropdown-menu" data-id="dropDown">
         <li><%= link_to "My Profile", edit_user_registration_path %></li>
-        <li><%= link_to "My List", "" %></li>
+        <li><%= link_to "My List", my_list_path %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "Sign Out", destroy_user_session_path %></li>
       </ul>

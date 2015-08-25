@@ -18,4 +18,8 @@ module MoviesHelper
   def decorate(data)
     data == "N/A" ? "" : data
   end
+
+  def add_to_list?(movie)
+    current_user.favorites.all.pluck(:movie_id).include?(movie.id)
+  end
 end
