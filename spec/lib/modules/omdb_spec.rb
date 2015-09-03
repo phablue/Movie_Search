@@ -4,7 +4,7 @@ require "#{Rails.root}/lib/modules/omdb_api.rb"
 describe Omdb::Movies do
   fixtures :movies
 
-  before(:each) do 
+  before(:each) do
     @omdb_movies = Omdb::Movies.new
 
     stub_request(:get, @omdb_movies.url)
