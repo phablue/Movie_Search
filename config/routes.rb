@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  root 'movies#main'
+
   devise_scope :user do
     get "sign-in",         to: "devise/sessions#new"
     get "sign-up",         to: "devise/registrations#new"
@@ -20,5 +22,8 @@ Rails.application.routes.draw do
     delete 'my-list', action: :destroy
   end
 
-  root 'movies#main'
+  controller :rankings do
+    get 'rank', action: :main
+  end
 end
+
