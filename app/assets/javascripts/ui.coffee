@@ -6,7 +6,7 @@ class UI
     @mouseOverListIcon()
     @enterKeyactivation()
     @popUpTrailer()
-    @dropDownUserMenu()
+    @dropDownMenu()
     @movie.search()
     @myListActive()
 
@@ -30,7 +30,7 @@ class UI
       => $(".add-list-btn").append( @listComment() ),
       -> $(this).find("span:last").remove())
 
-  dropDownUserMenu: ->
+  dropDownMenu: ->
     $("[data-id='userMenu']").click ->
       $("[data-id='dropDown']").toggleClass("open")
       $("[data-id='dropDown']").mouseleave ->
