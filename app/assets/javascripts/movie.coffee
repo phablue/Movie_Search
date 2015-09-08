@@ -32,7 +32,7 @@ class Movies
     if data.status == 'unauth'
       window.location = '/sign-in'
     else if data.status == false
-      alert(@ui.AddListErrorMessage())
+      alert(@ui.addListErrorMessage())
     else
       @convertRemoveListIcon(data)
 

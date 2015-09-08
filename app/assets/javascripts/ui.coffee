@@ -6,13 +6,17 @@ class UI
     @mouseOverListIcon()
     @enterKeyactivation()
     @popUpTrailer()
-    @dropDownMenu()
+    @userMenu()
     @movie.search()
     @myListActive()
 
   myListActive: ->
     @movie.addToMyList()
     @movie.removeFromMyList(@addedMovieListID())
+
+  userMenu: ->
+    $("[data-id='userMenu']").click =>
+      @dropDownMenu()
 
   popUpTrailer: ->
     $("[data-id='trailer']").magnificPopup
@@ -31,10 +35,9 @@ class UI
       -> $(this).find("span:last").remove())
 
   dropDownMenu: ->
-    $("[data-id='userMenu']").click ->
+    $("[data-id='dropDown']").toggleClass("open")
+    $("[data-id='dropDown']").mouseleave ->
       $("[data-id='dropDown']").toggleClass("open")
-      $("[data-id='dropDown']").mouseleave ->
-        $("[data-id='dropDown']").toggleClass("open")
 
   enterKeyactivation: ->
     $("[data-id='searchWord']").keyup (e) ->
@@ -58,7 +61,7 @@ class UI
   searchErrorMessage: ->
      "The search word must be more than 2 characters."
 
-  AddListErrorMessage: ->
+  addListErrorMessage: ->
     'Sorry, Something worng. Try Again'
 
 window.UI = UI
