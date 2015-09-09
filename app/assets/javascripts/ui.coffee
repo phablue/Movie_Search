@@ -3,6 +3,7 @@ class UI
     @movie = new Movies(this)
 
   enviroment: ->
+    @advancedSearch()
     @mouseOverListIcon()
     @enterKeyactivation()
     @popUpTrailer()
@@ -17,6 +18,9 @@ class UI
   userMenu: ->
     $("[data-id='userMenu']").click =>
       @dropDownMenu()
+
+  advancedSearch: ->
+    @selectBox()
 
   popUpTrailer: ->
     $("[data-id='trailer']").magnificPopup
@@ -38,6 +42,12 @@ class UI
     $("[data-id='dropDown']").toggleClass("open")
     $("[data-id='dropDown']").mouseleave ->
       $("[data-id='dropDown']").toggleClass("open")
+
+  selectBox: ->
+    $("[data-id='select']").select2(
+      placeholder: "Any",
+      maximumSelectionSize: 3
+    )
 
   enterKeyactivation: ->
     $("[data-id='searchWord']").keyup (e) ->
