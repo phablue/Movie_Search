@@ -1,18 +1,18 @@
 <div class="container">
-  <%= render "ranking" %>
+  <%= render "ranking" %><br>
   <ul class="list-inline rank">
     <% @movies.each do |movie| %>
       <li>
         <div class="poster">
           <%= link_to movie_path(movie), class: 'rank-poster' do %>
             <%= image_tag movie.poster %>
+            <% if @num < 9 %>
+              <span class="rank-num one"><%= @num += 1 %></span>
+            <% else %>
+              <span class="rank-num two"><%= @num += 1 %></span>
+            <% end %>
+            <p class="rank-title"><%= movie.title %></p>
           <% end %>
-          <% if @num < 9 %>
-            <span class="rank-num one"><%= @num += 1 %></span>
-          <% else %>
-            <span class="rank-num two"><%= @num += 1 %></span>
-          <% end %>
-          <p class="rank-title"><%= movie.title %></p>
         </div>
       </li>
     <% end %>

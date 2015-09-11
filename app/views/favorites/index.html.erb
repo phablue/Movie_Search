@@ -12,6 +12,7 @@
           <% end %>
           <%= link_to movie_path(favorite.movie_id) do %>
             <%= image_tag movie_poster(favorite) %>
+            <p class="favorite-title"><%= movie_title(favorite) %></p>
           <% end %>
         </div>
       </li>

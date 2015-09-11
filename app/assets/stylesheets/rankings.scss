@@ -20,11 +20,30 @@
 .rank-poster { position: relative; }
 
 .rank-num {
-  color: black;
+  color: #140000;
   font-family: 'Plaster', cursive;
   font-size: 70px;
   position: relative;
-  text-shadow: 2px 2px #ff0000;
+  text-shadow:
+    -3px -3px 2px #8f0000,
+    -2px -2px 1px #660000,
+    -1px -1px 0px #3d0000,
+    0px 1px 0px #3d0000,
+    1px 0px 0px #3d0000,
+    1px 2px 1px #3d0000,
+    2px 1px 1px #3d0000,
+    2px 3px 2px #660000,
+    3px 2px 2px #660000,
+    3px 4px 2px #8f0000,
+    4px 3px 3px #8f0000,
+    4px 5px 3px #b80000,
+    5px 4px 2px #b80000,
+    5px 6px 2px #e00000,
+    6px 5px 2px #e00000,
+    6px 7px 1px #ff0a0a,
+    7px 6px 1px #ff0a0a,
+    7px 8px 0px #ff3333,
+    8px 7px 0px #ff3333;
   top: -300px;
 }
 

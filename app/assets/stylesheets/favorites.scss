@@ -33,3 +33,17 @@
   left: 85%;
   z-index: 0;
 }
+
+.favorite-title {
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-family: 'Emblema One', cursive;
+  font-size: 18px;
+  height: 55px;
+  padding-left: 10px;
+  position: relative;
+  text-align: left;
+  top: -250px;
+  max-width: 100%;
+}
