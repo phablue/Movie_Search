@@ -22,20 +22,27 @@
 .rank-num {
   color: black;
   font-family: 'Plaster', cursive;
-  font-size: 80px;
+  font-size: 70px;
   position: relative;
+  text-shadow: 2px 2px #ff0000;
   top: -300px;
 }
 
 .one { left: 90px; }
 
-.two { left: 60px; }
+.two { left: 80px; }
 
 .rank-title {
-  color: black;
-  font-size: 25px;
-  left: -10px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-family: 'Emblema One', cursive;
+  font-size: 18px;
+  height: 55px;
+  padding-left: 10px;
   position: relative;
-  top: -250px;
+  text-align: left;
+  top: -310px;
+  max-width: 100%;
 }
 
