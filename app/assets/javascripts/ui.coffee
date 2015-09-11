@@ -3,24 +3,26 @@ class UI
     @movie = new Movies(this)
 
   enviroment: ->
-    @advancedSearch()
-    @mouseOverListIcon()
-    @enterKeyactivation()
-    @popUpTrailer()
-    @userMenu()
     @movie.search()
+    @popUpTrailer()
+    @advancedSearch()
+    @userMenu()
     @myListActive()
+    @enterKeyactivation()
 
   myListActive: ->
+    @mouseOverListIcon()
     @movie.addToMyList()
     @movie.removeFromMyList(@addedMovieListID())
 
   userMenu: ->
     $("[data-id='userMenu']").click =>
-      @dropDownMenu()
+      @dropDownMenu('userMenu')
 
   advancedSearch: ->
-    @selectBox()
+    $("[data-id='options']").click =>
+      @selectBox()
+      @dropDownMenu('options')
 
   popUpTrailer: ->
     $("[data-id='trailer']").magnificPopup
@@ -38,10 +40,10 @@ class UI
       => $(".add-list-btn").append( @listComment() ),
       -> $(this).find("span:last").remove())
 
-  dropDownMenu: ->
-    $("[data-id='dropDown']").toggleClass("open")
-    $("[data-id='dropDown']").mouseleave ->
-      $("[data-id='dropDown']").toggleClass("open")
+  dropDownMenu: (options) ->
+    $("[data-id='dropDown-#{options}']").toggleClass("open")
+    $("[data-id='dropDown-#{options}']").mouseleave ->
+      $("[data-id='dropDown-#{options}']").toggleClass("open")
 
   selectBox: ->
     $("[data-id='select']").select2(

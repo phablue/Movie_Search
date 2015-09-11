@@ -13,10 +13,10 @@ class Movies
       window.location = "/result?q=#{@ui.searchWord()}"
 
   addToMyList: ->
-    $("[data-id='Add-To']").bind( "click", @requestAddList );
+    $("[data-id='Add-To']").bind( "click", @requestAddList )
 
   removeFromMyList: (data) ->
-    $("[data-id='Remove-From']").bind( "click", { list_id: data.id }, @requestRemoveList );
+    $("[data-id='Remove-From']").bind( "click", { list_id: data.id }, @requestRemoveList )
 
   requestAddList: =>
     $.post("/my-list", { movie_id: @movieID() }).done(@checkAdditionResult)

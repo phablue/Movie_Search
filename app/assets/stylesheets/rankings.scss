@@ -1,13 +1,41 @@
-.advanced-serach {
-  margin-top: 20px;
+.page-header > .btn-xs {
+  margin-left: 45px;
+  margin-bottom: -15px;
 }
 
-.released-year label,
-.genre label {
-  max-width: 40%;
-  padding: 6px 12px;
-}
+.option-setting { display: none; }
+
+.glyphicon-chevron-down { margin-left: 5px; }
+
+.released-year label, .genre label { padding: 6px 12px; }
+
+.released-year label { max-width: 40% }
+
+.genre label { max-width: 25%; }
 
 .select2-results .select2-highlighted {
   background-color: #333 !important;
 }
+
+.rank-poster { position: relative; }
+
+.rank-num {
+  color: black;
+  font-family: 'Plaster', cursive;
+  font-size: 80px;
+  position: relative;
+  top: -300px;
+}
+
+.one { left: 90px; }
+
+.two { left: 60px; }
+
+.rank-title {
+  color: black;
+  font-size: 25px;
+  left: -10px;
+  position: relative;
+  top: -250px;
+}
+

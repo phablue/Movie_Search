@@ -5,28 +5,30 @@
 
 .poster {
   border-radius: 6px;
+  box-shadow: 5px 5px 5px #888888;
   height: 160px;
-  margin: 0 5px;
+  margin: 10px 10px;
   overflow: hidden;
-  width: 260px;
-  transition: all 1s ease;
+  width: 250px;
+  transition: all 0.5s ease;
 }
 
 .poster:hover {
-  margin: 0 20px;
-  transform:scale(1.2);
+  transform:scale(1.15);
 }
 
 .poster img {
-  margin-top: -90px;
+  max-height: 400px;
+  margin-top: -80px;
   margin-left: -20px;
+  width: 300px;
 }
 
 .glyphicon-minus-sign {
   background-color: white;
   border: 3px solid #333;
   border-radius: 20px;
-  color: #333;
+  color: black;
   font-size: 30px;
   left: 85%;
   z-index: 0;
