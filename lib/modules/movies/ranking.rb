@@ -15,11 +15,11 @@ module Movies
     end
 
     def genre
-      @genre == 'any' ? : @genre.split
+      @genre == 'any' ? '' : @genre.split
     end
 
     def released
-      @released == 'any' ? : @released.split
+      @released == 'any' ? '' : @released.split
     end
 
     def reviewer
