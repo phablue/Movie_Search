@@ -17,6 +17,12 @@
   background-color: #333 !important;
 }
 
+.option-setting > button {
+  position: relative;
+  top: -35px;
+  left: 30%;
+}
+
 .rank-poster { position: relative; }
 
 .rank-num {
@@ -26,7 +32,7 @@
   position: relative;
   text-shadow:
     -3px -3px 2px #8f0000,
-    -2px -2px 1px #660000,
+    -2px -2px 2px #660000,
     -1px -1px 0px #3d0000,
     0px 1px 0px #3d0000,
     1px 0px 0px #3d0000,

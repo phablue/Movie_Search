@@ -4,6 +4,7 @@ class UI
 
   enviroment: ->
     @movie.search()
+    @movie.ranking()
     @popUpTrailer()
     @advancedSearch()
     @userMenu()
@@ -20,8 +21,8 @@ class UI
       @dropDownMenu('userMenu')
 
   advancedSearch: ->
+    @selectBox()
     $("[data-id='options']").click =>
-      @selectBox()
       @dropDownMenu('options')
 
   popUpTrailer: ->
@@ -47,8 +48,7 @@ class UI
 
   selectBox: ->
     $("[data-id='select']").select2(
-      placeholder: "Any",
-      maximumSelectionSize: 3
+      maximumSelectionSize: 2
     )
 
   enterKeyactivation: ->
@@ -63,6 +63,10 @@ class UI
 
   searchWord: ->
     $("[data-id='searchWord']").val()
+
+  getText: (element) ->
+    $(element).map ->
+      $(this).text().toLowerCase()
 
   listComment: ->
     "<span class='list'>#{@listIconAction()} My List</span>"

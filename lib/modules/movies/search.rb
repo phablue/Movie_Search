@@ -1,4 +1,4 @@
-module Movies
+kmodule Movies
   class Search
     def initialize(search_term)
       @search_term = search_term

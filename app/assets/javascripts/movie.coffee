@@ -12,6 +12,10 @@ class Movies
     else
       window.location = "/result?q=#{@ui.searchWord()}"
 
+  ranking: ->
+    $("[data-id='optionSet']").click =>
+      window.location = "/rank?genre=#{@genre()}&released=#{@releasedYear()}&reviewer=#{@reviewer()}"
+
   addToMyList: ->
     $("[data-id='Add-To']").bind( "click", @requestAddList )
 
@@ -19,7 +23,7 @@ class Movies
     $("[data-id='Remove-From']").bind( "click", { list_id: data.id }, @requestRemoveList )
 
   requestAddList: =>
-    $.post("/my-list", { movie_id: @movieID() }).done(@checkAdditionResult)
+    $.post("/my-list", { movie_id: @id() }).done(@checkAdditionResult)
 
   requestRemoveList: (e) =>
     $.ajax(
@@ -46,7 +50,16 @@ class Movies
     $("[data-id='Add-To']").unbind( "click", @requestRemoveList )
     @addToMyList()
 
-  movieID: ->
+  id: ->
     $('.add-list-btn').data('movie-id')
+
+  genre: ->
+    @ui.getText('#genre option:selected').get().toString()
+
+  releasedYear: ->
+    @ui.getText('#released-year option:selected').get().toString()
+
+  reviewer: ->
+    @ui.getText('#reviewer option:selected').get().toString()
 
 window.Movies = Movies

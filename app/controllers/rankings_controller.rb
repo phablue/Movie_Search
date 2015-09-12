@@ -1,11 +1,11 @@
 class RankingsController < ApplicationController
   def main
-    @movies = default_raking
+    @movies = movies_ranking(params[:genre], params[:released], sption_of(params[:reviewer]))
     @num = 0
   end
 
   private
-  def default_raking
-    Movie.where.not(tomato_meter: 'N/A').order(tomato_meter: :desc).limit(20)
+  def movies_ranking(genre, released, reviewer)
+    Movies::Ranking.new(genre, released, reviewer)
   end
 end
