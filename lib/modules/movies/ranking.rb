@@ -17,14 +17,12 @@ module Movies
       option.nil? ? '' : option
     end
 
-
     def genre
       @genre == 'any' ? ['%%'] : @genre.split.collect { |o| "%#{o}%" }
     end
 
     def year
       @year == 'any' ? ['%'] : @year.split.collect { |o| "%#{o}" }
-
     end
 
     def reviewer
