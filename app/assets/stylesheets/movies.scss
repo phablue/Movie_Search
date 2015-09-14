@@ -135,3 +135,20 @@ table { color: #292C37; }
 }
 
 .netflix { margin-right: 30px; }
+
+.error { padding: 50px 100px !important; }
+
+.error > .lead {
+  line-height: 1.5;
+  padding: 10px;
+  margin-top: 200px;
+}
+
+.error > a { padding: 0 10px; }
+
+.error > img {
+  display: block;
+  position: relative;
+  left: 460px;
+  top: -330px;
+}

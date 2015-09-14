@@ -7,11 +7,15 @@
 
 .glyphicon-chevron-down { margin-left: 5px; }
 
-.released-year label, .genre label { padding: 6px 12px; }
+.reviewer {
+  position: relative !important;
+  left: -100px;
+}
 
-.released-year label { max-width: 40% }
-
-.genre label { max-width: 25%; }
+.genre label, .year label, .reviewer label {
+  max-width: 25%;
+  padding: 6px 12px;
+}
 
 .select2-results .select2-highlighted {
   background-color: #333 !important;
@@ -19,8 +23,8 @@
 
 .option-setting > button {
   position: relative;
-  top: -35px;
-  left: 30%;
+  top: -37px;
+  left: 95%;
 }
 
 .rank-poster { position: relative; }

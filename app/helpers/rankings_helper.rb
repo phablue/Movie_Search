@@ -1,5 +1,5 @@
 module RankingsHelper
-  def released_years
+  def years
     years = ['Any']
     current_year = Time.now.year.to_i
 

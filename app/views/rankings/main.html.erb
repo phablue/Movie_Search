@@ -4,14 +4,15 @@
       <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
     </button>
   </h1>
+  <!-- options search filter -->
   <div class="option-setting" data-id="dropDown-options">
     <div class="col-xs-6 col-sm-4 genre">
       <label class>Genre</label>
       <%= select_tag "genre", options_for_select(movie_genres, 'Any'), multiple: true, style: "width: 75%", 'data-id': "select" %>
     </div>
-    <div class="col-xs-6 col-sm-4 released-year">
-      <label class>Released Year</label>
-      <%= select_tag "released-year", options_for_select(released_years, 'Any'), multiple: true, style: "width: 50%", 'data-id': "select" %>
+    <div class="col-xs-6 col-sm-4 year">
+      <label class>Year</label>
+      <%= select_tag "year", options_for_select(years, 'Any'), multiple: true, style: "width: 50%", 'data-id': "select" %>
     </div>
     <div class="col-xs-6 col-sm-4 reviewer">
       <label class>Reviewer</label>
@@ -21,6 +22,7 @@
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </button>
   </div>
+  <!-- result ranking -->
   <ul class="list-inline rank">
     <% @movies.each do |movie| %>
       <li>

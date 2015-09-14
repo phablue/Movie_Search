@@ -43,8 +43,6 @@ class UI
 
   dropDownMenu: (options) ->
     $("[data-id='dropDown-#{options}']").toggleClass("open")
-    $("[data-id='dropDown-#{options}']").mouseleave ->
-      $("[data-id='dropDown-#{options}']").toggleClass("open")
 
   selectBox: ->
     $("[data-id='select']").select2(

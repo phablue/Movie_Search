@@ -1,25 +1,30 @@
 module Movies
   class Ranking
-    def initilize(genre, released, reviewer)
+    def initialize(genre, year, reviewer)
       @genre = genre
-      @released = released
+      @year = year
       @reviewer = reviewer
     end
 
-    def movies_ranking
-      Movie.where(options).where.not(reviewer => 'N/A').order(reviewer => :desc).limit(20)
+    def results
+      Movie.where("genre like ? or genre like ?", genre[0], is_nil?(genre[1]))
+           .where("year like ? or year like ?", year[0], is_nil?(year[1]))
+           .where.not(reviewer => 'N/A')
+           .order(reviewer => :desc).limit(20)
     end
 
-    def options
-      { genre: genre, released: released }
+    def is_nil?(option)
+      option.nil? ? '' : option
     end
+
 
     def genre
-      @genre == 'any' ? '' : @genre.split
+      @genre == 'any' ? ['%%'] : @genre.split.collect { |o| "%#{o}%" }
     end
 
-    def released
-      @released == 'any' ? '' : @released.split
+    def year
+      @year == 'any' ? ['%'] : @year.split.collect { |o| "%#{o}" }
+
     end
 
     def reviewer

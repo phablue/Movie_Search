@@ -14,7 +14,7 @@ class Movies
 
   ranking: ->
     $("[data-id='optionSet']").click =>
-      window.location = "/rank?genre=#{@genre()}&released=#{@releasedYear()}&reviewer=#{@reviewer()}"
+      window.location = "/rank?genre=#{@genre()}&reviewer=#{@reviewer()}&year=#{@year()}"
 
   addToMyList: ->
     $("[data-id='Add-To']").bind( "click", @requestAddList )
@@ -56,8 +56,8 @@ class Movies
   genre: ->
     @ui.getText('#genre option:selected').get().toString()
 
-  releasedYear: ->
-    @ui.getText('#released-year option:selected').get().toString()
+  year: ->
+    @ui.getText('#year option:selected').get().toString()
 
   reviewer: ->
     @ui.getText('#reviewer option:selected').get().toString()
