@@ -21,7 +21,7 @@ module Netflix
     end
 
     def options
-      "title=#{@movie.title}&year=#{@movie.released}"
+      "title=#{ERB::Util.url_encode(@movie.title)}&year=#{@movie.year}"
     end
   end
 end

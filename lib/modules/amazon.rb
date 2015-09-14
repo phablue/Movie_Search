@@ -16,7 +16,7 @@ module Amazon
     end
 
     def movie_asin
-      Nokogiri::XML(get_movie).xpath("//xmlns:ASIN")[0].content
+      Nokogiri::XML(get_movie).xpath("//xmlns:ASIN")[0].nil? ? nil : Nokogiri::XML(get_movie).xpath("//xmlns:ASIN")[0].content
     end
 
     def get_movie
