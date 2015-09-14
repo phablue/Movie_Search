@@ -4,7 +4,6 @@ gem "rails", "4.2.1"
 gem "sqlite3"
 gem "httparty"
 
-gem "netflix_roulette"
 gem "vacuum"
 gem "nokogiri"
 gem "devise"
@@ -23,6 +22,13 @@ gem "turbolinks"
 
 gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
+
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv', github: 'capistrano/rbenv'
+gem 'net-ssh', "~> 2.7.0"
+gem 'dotenv-rails', :github => "bkeepers/dotenv", :require => 'dotenv/rails-now'
 
 group :development, :test do
   gem "rspec-rails"
