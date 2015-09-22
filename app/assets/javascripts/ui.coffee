@@ -45,9 +45,8 @@ class UI
     $("[data-id='dropDown-#{options}']").toggleClass("open")
 
   selectBox: ->
-    $("[data-id='select']").select2(
+    $("[data-id='select']").select2
       maximumSelectionSize: 2
-    )
 
   enterKeyactivation: ->
     $("[data-id='searchWord']").keyup (e) ->

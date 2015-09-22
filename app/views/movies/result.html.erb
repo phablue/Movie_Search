@@ -7,7 +7,7 @@
           <th></th>
           <th>TITLE</th>
           <th>DIRECTOR</th>
-          <th>ACTORS</th>
+          <th>CAST</th>
           <th>RELEASE</th>
           <th></th>
         </tr>
@@ -20,7 +20,7 @@
             </th>
               <td><%= link_to movie.title, movie_path(movie), class: "title" %></td>
               <td><%= decorate(movie.director) %></td>
-              <td><%= decorate(movie.actors) %></td>
+              <td><%= decorate(movie.cast) %></td>
               <td><%= decorate(movie.year) %></td>
           </tr>
          <% end %>

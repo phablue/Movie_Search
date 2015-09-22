@@ -54,12 +54,12 @@ class Movies
     $('.add-list-btn').data('movie-id')
 
   genre: ->
-    @ui.getText('#genre option:selected').get().toString()
+    @ui.getText('#genre option:selected').get()
 
   year: ->
-    @ui.getText('#year option:selected').get().toString()
+    @ui.getText('#year option:selected').get()
 
   reviewer: ->
-    @ui.getText('#reviewer option:selected').get().toString()
+    @ui.getText('#reviewer option:selected').get()
 
 window.Movies = Movies

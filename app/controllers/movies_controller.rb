@@ -12,12 +12,12 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
     begin
+      @movie = Movie.find(params[:id])
       @netflix_url = Netflix::Movies.new(@movie).url
+      @amazon_url = Amazon::Movies.new(@movie).url
     rescue JSON::ParserError
       render template: 'movies/error'
     end
-    @amazon_url = Amazon::Movies.new(@movie).url
   end
 end

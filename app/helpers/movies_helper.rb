@@ -16,7 +16,7 @@ module MoviesHelper
   end
 
   def decorate(data)
-    data == "N/A" ? "" : data
+    data == "" ? "" : data
   end
 
   def additional_unavailable?(movie)

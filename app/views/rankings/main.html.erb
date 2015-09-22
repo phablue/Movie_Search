@@ -8,15 +8,15 @@
   <div class="option-setting" data-id="dropDown-options">
     <div class="col-xs-6 col-sm-4 genre">
       <label class>Genre</label>
-      <%= select_tag "genre", options_for_select(movie_genres, 'Any'), multiple: true, style: "width: 75%", 'data-id': "select" %>
+      <%= select_tag "genre", options_for_select(movie_genres, @options[:genre]), multiple: true, style: "width: 75%", 'data-id': "select" %>
     </div>
     <div class="col-xs-6 col-sm-4 year">
       <label class>Year</label>
-      <%= select_tag "year", options_for_select(years, 'Any'), multiple: true, style: "width: 50%", 'data-id': "select" %>
+      <%= select_tag "year", options_for_select(years, @options[:year]), multiple: true, style: "width: 50%", 'data-id': "select" %>
     </div>
     <div class="col-xs-6 col-sm-4 reviewer">
       <label class>Reviewer</label>
-      <%= select_tag "reviewer", options_for_select(['IMDB', 'Rotten Tomatoes'], 'Rotten Tomatoes'), style: "width: 70%", 'data-id': "select" %>
+      <%= select_tag "reviewer", options_for_select(['IMDB', 'Rotten Tomatoes'], @options[:reviewer]), style: "width: 70%", 'data-id': "select" %>
     </div>
     <button type="submit" class="btn btn-default" data-id="optionSet">
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>

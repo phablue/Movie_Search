@@ -14,27 +14,27 @@
   </h1>
 
   <!-- Movie Information -->
-  <% unless @movie.rated == "N/A" %>
+  <% unless @movie.rating == "" %>
     <label class="movie-info">Rated</label>
-    <span class="info"><%= decorate(@movie.rated) %></span>
+    <span class="info"><%= decorate(@movie.rating) %></span>
   <% end %>
-  <% unless @movie.runtime == "N/A" %>
+  <% unless @movie.runtime == "" %>
     <label class="movie-info">RunTime</label>
     <span class="info"><%= decorate(@movie.runtime) %></span>
   <% end %>
-  <% unless @movie.genre == "N/A" %>
+  <% unless @movie.genre == "" %>
     <label class="movie-info">Genre</label>
     <span class="info"><%= decorate(@movie.genre) %></span>
   <% end %>
 
   <!-- Movie Score -->
-  <% unless @movie.imdb_rating == "N/A" %>
+  <% unless @movie.imdb_rating == "" %>
     <%= image_tag "imdb" %>
     <%= link_to imdb_link(@movie.imdb_ID) do %>
       <span class="rate"> <%= @movie.imdb_rating %> </span></a>
     <% end %>
   <% end %>
-  <% unless @movie.tomato_meter == "N/A" %>
+  <% unless @movie.tomato_meter == "" %>
     <%= image_tag "tomato" %>
     <%= link_to tomatoes_link(@movie.imdb_ID) do %>
       <span class="rate"> <%= @movie.tomato_meter %> </span>
@@ -42,7 +42,7 @@
   <% end %><br>
 
   <!-- Movie Poster -->
-  <% if @movie.poster == "N/A" %>
+  <% if @movie.poster == "" %>
     <%= image_tag "no-image", class: "img-thumbnail" %>
   <% else %>
     <%= image_tag @movie.poster, class: "img-thumbnail" %>
