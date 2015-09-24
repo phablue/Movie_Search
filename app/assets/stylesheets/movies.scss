@@ -55,6 +55,14 @@ table { color: #292C37; }
   text-decoration: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .result > .table > thead > tr > th:nth-of-type(3),
+  .result > .table > thead > tr > th:nth-of-type(4),
+  .result > .table > tbody > tr > td:nth-of-type(2),
+  .result > .table > tbody > tr > td:nth-of-type(3) {
+    display: none;
+  }
+}
 /* Movie Show Page */
 /** Add My List **/
 .glyphicon-plus-sign, .glyphicon-ok-sign {
