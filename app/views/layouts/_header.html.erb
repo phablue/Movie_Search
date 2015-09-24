@@ -9,14 +9,14 @@
         </li>
       <ul>
     </div>
-    <%= render 'layouts/account' %>
-    <div class="navbar-form" role="search">
-      <div class="form-group">
+    <div class="nav navbar-nav navbar-right">
+      <div class="navbar-form" role="search">
         <input type="text" class="form-control" placeholder="Movie Title" data-id="searchWord">
+        <button type="submit" class="btn btn-default" data-id="searchBTN">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
       </div>
-      <button type="submit" class="btn btn-default" data-id="searchBTN">
-        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-      </button>
+      <%= render 'layouts/account' %>
     </div>
   </div>
 </header>

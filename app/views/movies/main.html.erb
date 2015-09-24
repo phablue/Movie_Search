@@ -2,15 +2,10 @@
 <div class="jumbotron">
   <%= image_tag("main-top-image", class: "main-top-image") %>
   <h1 class="main-title">Movie Time</h1>
-</div>
-
-<!-- Main Search -->
-<div class="form-group">
+  <!-- Main Search -->
   <div class="main-search">
-    <div class="col-xs-12 col-sm-6 col-md-8">
-      <input type="text" class="form-control" placeholder="Movie Title" data-id="searchWord">
-    </div>
-    <button type="submit" class="btn btn-default" data-id="searchBTN">
+    <input type="text" class="form-control" placeholder="Movie Title" data-id="searchWord">
+    <button class="btn btn-default" data-id="searchBTN">
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </button>
   </div>
@@ -18,6 +13,3 @@
     <%= javascript_tag "alert('#{flash[:error]}')" %>
   <% end %>
 </div>
-
-<!-- bottom Image -->
-<%= image_tag("audience", class: "main-bottom-image") %>

@@ -49,7 +49,7 @@ body { font-family: 'Ubuntu', sans-serif; }
 
 .navbar-default .navbar-nav > li > a:hover { color: #9d9d9d !important; }
 
-.navbar-form { float: right; }
+.navbar-form { float: left; }
 
 /** Accoount **/
 .account {
@@ -100,3 +100,31 @@ a:hover { text-decoration: none; }
   font-weight: 700;
   padding-bottom: 15px !important;
 }
+
+/* Display For Smart Phone */
+@media only screen and (max-width: 768px) {
+  .body { margin-top: 200px; }
+  .navbar-brand {
+    display: block;
+    float: none;
+    max-width: 90%;
+    text-align: center;
+  }
+  .nav > li { display: inline-block }
+  .rank-menu {
+    position: absolute;
+    top: 130px;
+  }
+  .navbar-form {
+    border: none !important;
+    float: none;
+    margin: 5px auto;
+    max-width: 80%;
+    width: 100%;
+  }
+  .account {
+    margin-right: 30px;
+    margin-top: 26px;
+  }
+}
+
