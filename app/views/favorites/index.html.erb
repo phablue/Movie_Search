@@ -1,5 +1,5 @@
-<div class="container">
-  <h1 class="page-header"> My List </h1>
+<section class="container">
+  <h2 class="page-header"> My List </h2>
   <% if @favorites.nil? %>
     <p class="bg-info"> Don't have any movies in your List </p>
   <% end %>
@@ -19,4 +19,4 @@
     <% end %>
   </ul>
   <%= link_to 'Home', '/' %>
-</div>
+</section>

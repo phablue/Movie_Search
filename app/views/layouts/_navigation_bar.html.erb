@@ -1,0 +1,21 @@
+<nav id="top" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to "Home", "/" %></li>
+      <li>
+        <%= link_to "Top 20", '/rank?genre=any&reviewer=rotten%20tomatoes&year=any' %>
+      </li>
+      <li class="account" data-id="userMenu">
+        <%= render 'layouts/account' %>
+      </li>
+      <li class="search">
+        <div class="navbar-form" role="search">
+          <input type="search" class="form-control" placeholder="Movie Title" data-id="searchWord">
+          <button type="submit" class="btn btn-default" data-id="searchBTN">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

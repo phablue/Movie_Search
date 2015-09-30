@@ -11,13 +11,29 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic|Limelight|Lato:400,700|Plaster|Emblema+One);
 
 /* General */
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+main { margin-top: 270px; }
+
 table { margin-top: 30px; }
 
-body { font-family: 'Ubuntu', sans-serif; }
-
-.body { margin-top: 50px; }
+a:hover { text-decoration: none; }
 
 .form-horizontal .control-label { text-align: left; }
+
+.form-control {
+  display: inline !important;
+  margin: auto;
+  max-width: 80%;
+}
+
+.page-header {
+  color: #52504E;
+  font-weight: 700;
+  padding-bottom: 15px !important;
+}
 
 .bg-danger {
   color: #BD1550;
@@ -26,35 +42,58 @@ body { font-family: 'Ubuntu', sans-serif; }
 }
 
 /* Header */
-.navbar-fixed-top { background-color: #31302F; }
+header {
+  background-color: #2A2A2A;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+  text-align: center;
+}
 
-.navbar-default .navbar-brand {
-  color: #F6F6F6;
+header > img { max-width: 100%; }
+
+header > logo {
+  color: #fff;
+  display: block;
   font-family: 'Limelight', cursive;
+  font-size: 3.0em;
 }
 
-.navbar-brand { font-size: 30px; }
+/** Navigation Bar **/
+nav { padding: 10px 0; }
 
-.navbar-default .navbar-nav > .active > a {
-  background-color: #1A1A1A;
-  color: #F6F6F6;
-  margin-left: 30px;
+.nav { width: 100%; }
+
+.nav > li { position: static; }
+
+.nav > li > a {
+  color: #B4B4B4;
+  font-size: 1.1em;
+  font-weight: bolder;
+  margin-right: 10px;
 }
 
-.navbar-default .navbar-nav > .active > a:hover { background-color: #1A1A1A; }
-.navbar-default .navbar-nav > li > a {
-  color: #F6F6F6;
-  font-size: 15px;
+.active > a, .active > a:hover {
+  border-bottom: 2px solid #fff !important;
+  color: #fff !important;
 }
 
-.navbar-default .navbar-nav > li > a:hover { color: #9d9d9d !important; }
+.nav > li > a:hover {
+  background-color: #2A2A2A;
+  border-bottom: 1px solid #B4B4B4;
+}
 
-.navbar-form { float: left; }
+.search { float: right !important; }
 
 /** Accoount **/
 .account {
-  float: right;
+  float: right !important;
+  font-family: 'Ubuntu', sans-serif;
   margin-top: 10px;
+  top: 100%;
+  left: 20%;
 }
 
 .glyphicon-user {
@@ -64,15 +103,11 @@ body { font-family: 'Ubuntu', sans-serif; }
   top: 5px !important;
 }
 
-.dropdown-menu {
-  font-family: 'Ubuntu', sans-serif;
-  top: 100%;
-  left: 20%;
-}
-
 .open { display: block; }
 
 .dropdown { cursor: pointer; }
+
+.dropdown-menu > li > a { font-family: 'Ubuntu', sans-serif; }
 
 .user {
   color: #F6F6F6;
@@ -84,47 +119,19 @@ body { font-family: 'Ubuntu', sans-serif; }
   top: -4px;
 }
 
-/* Footer */
-.back-to-top {
-  float: right;
-  font-size: 15px;
-  margin-top: 13px;
-}
-
-.glyphicon-menu-up { padding-left: 5px; }
-
-a:hover { text-decoration: none; }
-
-.page-header {
-  color: #52504E;
-  font-weight: 700;
-  padding-bottom: 15px !important;
-}
-
 /* Display For Smart Phone */
-@media only screen and (max-width: 768px) {
-  .body { margin-top: 200px; }
-  .navbar-brand {
+@media all and (max-width: 768px) {
+  main { margin-top: 300px; }
+
+  .nav > li { display: inline-block }
+
+  .search {
+    background-color: #2A2A2A;
     display: block;
     float: none;
-    max-width: 90%;
-    text-align: center;
-  }
-  .nav > li { display: inline-block }
-  .rank-menu {
-    position: absolute;
-    top: 130px;
-  }
-  .navbar-form {
-    border: none !important;
-    float: none;
     margin: 5px auto;
-    max-width: 80%;
+    position: absolute;
     width: 100%;
-  }
-  .account {
-    margin-right: 30px;
-    margin-top: 26px;
   }
 }
 

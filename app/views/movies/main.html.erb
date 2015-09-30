@@ -1,15 +1,4 @@
-<!-- Header Image -->
-<div class="jumbotron">
-  <%= image_tag("main-top-image", class: "main-top-image") %>
-  <h1 class="main-title">Movie Time</h1>
-  <!-- Main Search -->
-  <div class="main-search">
-    <input type="text" class="form-control" placeholder="Movie Title" data-id="searchWord">
-    <button class="btn btn-default" data-id="searchBTN">
-      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    </button>
-  </div>
-  <% if flash[:error] %>
-    <%= javascript_tag "alert('#{flash[:error]}')" %>
-  <% end %>
-</div>
+<!-- Will Insert Movie Flash Image -->
+<% if flash[:error] %>
+  <%= javascript_tag "alert('#{flash[:error]}')" %>
+<% end %>

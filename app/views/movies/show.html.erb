@@ -1,6 +1,6 @@
-<div class="container">
-  <!-- Movie Title -->
-  <h1 class="page-header">
+<section class="container">
+  <h2 class="page-header">
+    <!-- Movie Title -->
     <%= @movie.title %>
     <small> <%= decorate(@movie.year) %> </small>
     <!-- Add My List -->
@@ -11,67 +11,72 @@
         <span class="glyphicon glyphicon-ok-sign" data-id="Remove-From" aria-hidden="true" data-list-id=<%= favorite(@movie).id %> ></span>
       <% end %>
     </label>
-  </h1>
+  </h2>
 
-  <!-- Movie Information -->
-  <% unless @movie.rating == "" %>
-    <label class="movie-info">Rated</label>
-    <span class="info"><%= decorate(@movie.rating) %></span>
-  <% end %>
-  <% unless @movie.runtime == "" %>
-    <label class="movie-info">RunTime</label>
-    <span class="info"><%= decorate(@movie.runtime) %></span>
-  <% end %>
-  <% unless @movie.genre == "" %>
-    <label class="movie-info">Genre</label>
-    <span class="info"><%= decorate(@movie.genre) %></span>
-  <% end %>
-
-  <!-- Movie Score -->
-  <% unless @movie.imdb_rating == "" %>
-    <%= image_tag "imdb" %>
-    <%= link_to imdb_link(@movie.imdb_ID) do %>
-      <span class="rate"> <%= @movie.imdb_rating %> </span></a>
-    <% end %>
-  <% end %>
-  <% unless @movie.tomato_meter == "" %>
-    <%= image_tag "tomato" %>
-    <%= link_to tomatoes_link(@movie.imdb_ID) do %>
-      <span class="rate"> <%= @movie.tomato_meter %> </span>
-    <% end %>
-  <% end %><br>
-
-  <!-- Movie Poster -->
-  <% if @movie.poster == "" %>
-    <%= image_tag "no-image", class: "img-thumbnail" %>
-  <% else %>
-    <%= image_tag @movie.poster, class: "img-thumbnail" %>
-  <% end %>
-
-  <!-- Movie Plot -->
-  <blockquote class="plot">
-    <p><%= @movie.plot %></p>
-  </blockquote>
-
-  <!-- Movie Trailer -->
-  <% unless trailer_url(@movie).nil? %>
-    <button class="trailer" data-id="trailer" data-url=<%= trailer_url(@movie) %>>
-      Watch Trailer
-      <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-    </button>
-  <% end %>
-
-  <!-- Movie Watch Link -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Watch Now</h3>
-    </div>
-    <div class="panel-body">
-      <% if invalid_watch?(@netflix_url, @amazon_url) %>
-        <p class="text-danger">Sorry, Unavailable watch</p>
+  <div class="page-main">
+    <span class="movie-information">
+      <% unless @movie.rating == "" %>
+        <label class="movie-info">Rated</label>
+        <span class="info"><%= decorate(@movie.rating) %></span>
       <% end %>
-      <%= link_to image_tag("netflix"), @netflix_url, class: "netflix"  unless @netflix_url.nil? %>
-      <%= link_to image_tag("amazon"), @amazon_url unless @amazon_url.nil? %>
+      <% unless @movie.runtime == "" %>
+        <label class="movie-info">RunTime</label>
+        <span class="info"><%= decorate(@movie.runtime) %></span>
+      <% end %>
+      <% unless @movie.genre == "" %>
+        <label class="movie-info">Genre</label>
+        <span class="info"><%= decorate(@movie.genre) %></span>
+      <% end %>
+    </span>
+
+    <span class="movie-score">
+      <% unless @movie.imdb_rating == "" %>
+        <%= image_tag "imdb" %>
+        <%= link_to imdb_link(@movie.imdb_ID) do %>
+          <span class="rate"> <%= @movie.imdb_rating %> </span></a>
+        <% end %>
+      <% end %>
+      <% unless @movie.tomato_meter == "" %>
+        <%= image_tag "tomato" %>
+        <%= link_to tomatoes_link(@movie.imdb_ID) do %>
+          <span class="rate"> <%= @movie.tomato_meter %> </span>
+        <% end %>
+      <% end %>
+    </span><br>
+
+    <span class="movie-poster">
+      <% if @movie.poster == "" %>
+        <%= image_tag "no-image", class: "img-thumbnail" %>
+      <% else %>
+        <%= image_tag @movie.poster, class: "img-thumbnail" %>
+      <% end %>
+    </span>
+
+    <blockquote class="movie-plot">
+      <p><%= @movie.plot %></p>
+    </blockquote>
+
+    <span class="movie-trailer">
+      <% unless trailer_url(@movie).nil? %>
+        <button data-id="trailer" data-url=<%= trailer_url(@movie) %>>
+          Watch Trailer
+          <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+        </button>
+      <% end %>
+    </span>
+
+    <!-- Movie Watch Link -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Watch Now</h3>
+      </div>
+      <div class="panel-body">
+        <% if invalid_watch?(@netflix_url, @amazon_url) %>
+          <p class="text-danger">Sorry, Unavailable watch</p>
+        <% end %>
+        <%= link_to image_tag("netflix"), @netflix_url, class: "netflix"  unless @netflix_url.nil? %>
+        <%= link_to image_tag("amazon"), @amazon_url unless @amazon_url.nil? %>
+      </div>
     </div>
   </div>
-</div>
+</section>

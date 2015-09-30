@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_action  :store_location
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :active_header
 
   protected
   def authenticate_user!(options={})
@@ -35,10 +34,5 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     session[:previous_url] || root_path
-  end
-
-  private
-  def active_header
-    @active_header = true
   end
 end

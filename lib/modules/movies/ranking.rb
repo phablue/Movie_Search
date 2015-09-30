@@ -39,7 +39,7 @@ module Movies
     end
 
     def reviewer
-      @reviewer == 'rotten tomatoes' ? 'tomato_meter' : 'imdb_rating'
+      @reviewer == 'rotten tomatoes' ? 'tomato_meter' : 'metacritic'
     end
   end
 end

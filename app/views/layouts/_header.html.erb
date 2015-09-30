@@ -1,22 +1,6 @@
-<header class="navbar navbar-default navbar-fixed-top" id="top" role="banner">
-  <div class="container">
-    <a class="navbar-brand" href="/">Movie Time</a>
-    <div class="rank-menu">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Home", "/" %></li>
-        <li>
-          <%= link_to "Top 20", '/rank?genre=any&reviewer=rotten%20tomatoes&year=any' %>
-        </li>
-      <ul>
-    </div>
-    <div class="nav navbar-nav navbar-right">
-      <div class="navbar-form" role="search">
-        <input type="text" class="form-control" placeholder="Movie Title" data-id="searchWord">
-        <button type="submit" class="btn btn-default" data-id="searchBTN">
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </div>
-      <%= render 'layouts/account' %>
-    </div>
-  </div>
+<header role="banner">
+  <%= image_tag("header-image") %>
+  <logo>Movie Time</logo>
+  <%= render 'layouts/navigation_bar' %>
 </header>
+

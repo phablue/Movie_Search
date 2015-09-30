@@ -1,7 +1,7 @@
-<div class="result">
+<section class="container">
   <p class="result-message"><%= flash[:notice] %></p>
   <% unless  @movies.empty? %>
-    <table class="table table-hover">
+    <table class="result table table-hover">
       <thead>
         <tr>
           <th></th>
@@ -26,4 +26,4 @@
       </tbody>
     </table>
   <% end %>
-</div>
+</section>
