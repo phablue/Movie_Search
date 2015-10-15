@@ -5,7 +5,7 @@
     </button>
   </h2>
   <!-- options search filter -->
-  <div class="option-setting" data-id="dropDown-options">
+  <div class="option-setting" data-id="fold-options">
     <div class="col-xs-6 col-sm-4 genre">
       <label class>Genre</label>
       <%= select_tag "genre", options_for_select(movie_genres, @options[:genre]), multiple: true, style: "width: 75%", 'data-id': "select" %>

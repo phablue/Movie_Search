@@ -10,24 +10,151 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic|Limelight|Lato:400,700|Plaster|Emblema+One);
 
-/* General */
+
+/* Body */
+/** For all **/
 body {
   font-family: 'Ubuntu', sans-serif;
+  background-image: url("/assets/body-background-img-sm.png");
+  background-attachment: fixed;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+@media only screen and (min-width: 768px) {
+  body { background-image: url("/assets/body-background-img-lg.png"); }
+  background-size: contain;
+}
+
+a { color: inherit; }
+
+a:hover { text-decoration: none; }
+
+/* Navigation Bar */
+.navbar-default { background-color: rgba(190, 190, 190, 0.3); }
+
+.container {
+  position: relative;
+  max-width: 95%;
+}
+
+.navbar-default .navbar-brand { color: #333333; }
+
+.navbar-brand {
+  font-family: 'Limelight', cursive;
+  font-size: 2.3em;
+}
+
+.open { display: block !important; }
+
+.glyphicon-menu-hamburger {
+  font-size: 1.8em;
+  padding: 10px 5px;
+  position: absolute;
+  right: 55px;
+}
+
+.glyphicon-menu-hamburger:hover { cursor: pointer; }
+
+@media only screen and (max-width: 480px) {
+  .glyphicon-menu-hamburger > span { display: none; }
+}
+
+.menu {
+  background-color: rgba(153, 153, 153, 0.5);
+  font-size: 1.1em;
+  padding: 0 10px;
+  position: absolute;
+  top: 52px;
+  left: -20px;
+  width: 110%;
+}
+
+.navbar-nav, .navbar-nav > li { float: none; }
+
+.navbar-default .navbar-nav > li { padding: 0 15px; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #333333;
+  display: inline-block;
+  font-weight: bolder;
+}
+
+.navbar-default .navbar-nav > li > a:hover { color: #fff; }
+
+.divider {
+  height: 1px;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.glyphicon-search {
+  background-color: #333333;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.1em;
+  margin: 0 15px;
+  padding: 7px;
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+
+.glyphicon-search:hover { cursor: pointer; }
+
+.navbar-form{
+  display: none;
+  background-color: rgba(65, 65, 65, 0.9);
+  border: none;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-form > form {
+  display: inline-block;
+  margin: 0;
+  width: 90%;
+  padding: 0;
+}
+
+.glyphicon-remove {
+  color: #fff;
+  float: right;
+  font-size: 1.3em;
+  padding: 0 5px;
+}
+
+.glyphicon-remove:hover { cursor: pointer; }
+
+/** Accoount **/
+.account-menu {
+  border-top: 1px solid #eee;
+  margin-top: -5px;
+  margin-left: 20px;
+}
+
+.navbar-default .navbar-nav > li > ul > li > a {
+  color: #666;
+  padding: 10px;
+}
+
+.account-menu > li:nth-of-type(3) { border-top: 1px solid #eee }
+
+.caret { margin-left: 5px; }
+
+.user {
+}
+
+/* General */
 main { margin-top: 270px; }
 
 table { margin-top: 30px; }
 
-a:hover { text-decoration: none; }
-
 .form-horizontal .control-label { text-align: left; }
-
-.form-control {
-  display: inline !important;
-  margin: auto;
-  max-width: 80%;
-}
 
 .page-header {
   color: #52504E;
@@ -40,98 +167,3 @@ a:hover { text-decoration: none; }
   font-size: 15px;
   padding: 5px 10px;
 }
-
-/* Header */
-header {
-  background-color: #2A2A2A;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1040;
-  text-align: center;
-}
-
-header > img { max-width: 100%; }
-
-header > logo {
-  color: #fff;
-  display: block;
-  font-family: 'Limelight', cursive;
-  font-size: 3.0em;
-}
-
-/** Navigation Bar **/
-nav { padding: 10px 0; }
-
-.nav { width: 100%; }
-
-.nav > li { position: static; }
-
-.nav > li > a {
-  color: #B4B4B4;
-  font-size: 1.1em;
-  font-weight: bolder;
-  margin-right: 10px;
-}
-
-.active > a, .active > a:hover {
-  border-bottom: 2px solid #fff !important;
-  color: #fff !important;
-}
-
-.nav > li > a:hover {
-  background-color: #2A2A2A;
-  border-bottom: 1px solid #B4B4B4;
-}
-
-.search { float: right !important; }
-
-/** Accoount **/
-.account {
-  float: right !important;
-  font-family: 'Ubuntu', sans-serif;
-  margin-top: 10px;
-  top: 100%;
-  left: 20%;
-}
-
-.glyphicon-user {
-  color: #F6F6F6;
-  font-size: 22px;
-  padding-left: 20px;
-  top: 5px !important;
-}
-
-.open { display: block; }
-
-.dropdown { cursor: pointer; }
-
-.dropdown-menu > li > a { font-family: 'Ubuntu', sans-serif; }
-
-.user {
-  color: #F6F6F6;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  margin-left: -15px;
-  position: relative;
-  top: -4px;
-}
-
-/* Display For Smart Phone */
-@media all and (max-width: 768px) {
-  main { margin-top: 300px; }
-
-  .nav > li { display: inline-block }
-
-  .search {
-    background-color: #2A2A2A;
-    display: block;
-    float: none;
-    margin: 5px auto;
-    position: absolute;
-    width: 100%;
-  }
-}
-

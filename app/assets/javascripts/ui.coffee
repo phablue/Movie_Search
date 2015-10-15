@@ -6,24 +6,36 @@ class UI
     @movie.search()
     @movie.ranking()
     @popUpTrailer()
-    @advancedSearch()
-    @userMenu()
+    @menuConfig()
     @myListActive()
-    @enterKeyactivation()
 
   myListActive: ->
     @mouseOverListIcon()
     @movie.addToMyList()
     @movie.removeFromMyList(@addedMovieListID())
 
+  menuConfig: ->
+    @navSearchBox()
+    @navSearchBoxClose()
+    @userMenu()
+    @advancedSearch()
+
+  navSearchBox: ->
+    $("[data-id='search']").click =>
+      @unfoldMenu('search')
+
+  navSearchBoxClose: ->
+    $("[data-id='close-search']").click =>
+      @unfoldMenu('search')
+
   userMenu: ->
     $("[data-id='userMenu']").click =>
-      @dropDownMenu('userMenu')
+      @unfoldMenu('userMenu')
 
   advancedSearch: ->
     @selectBox()
     $("[data-id='options']").click =>
-      @dropDownMenu('options')
+      @unfoldMenuu('options')
 
   popUpTrailer: ->
     $("[data-id='trailer']").magnificPopup
@@ -41,16 +53,12 @@ class UI
       => $(".add-list-btn").append( @listComment() ),
       -> $(this).find("span:last").remove())
 
-  dropDownMenu: (options) ->
-    $("[data-id='dropDown-#{options}']").toggleClass("open")
+  unfoldMenu: (options) ->
+    $("[data-id='fold-#{options}']").toggleClass("open")
 
   selectBox: ->
     $("[data-id='select']").select2
       maximumSelectionSize: 2
-
-  enterKeyactivation: ->
-    $("[data-id='searchWord']").keyup (e) ->
-      $("[data-id='searchBTN']").click() if(e.keyCode == 13)
 
   invalidSearchWord: ->
     @searchWord().length < 2 || _.isNull(@searchWord())

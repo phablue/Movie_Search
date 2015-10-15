@@ -3,14 +3,8 @@ class Movies
     @ui = ui
 
   search: ->
-    $("[data-id='searchBTN']").click =>
-      @results()
-
-  results: ->
-    if @ui.invalidSearchWord()
-      alert(@ui.searchErrorMessage())
-    else
-      window.location = "/result?q=#{@ui.searchWord()}"
+    $("[data-id='searchForm']").submit =>
+      alert(@ui.searchErrorMessage()) if @ui.invalidSearchWord()
 
   ranking: ->
     $("[data-id='optionSet']").click =>
