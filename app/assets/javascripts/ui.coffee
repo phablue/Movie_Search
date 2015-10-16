@@ -6,7 +6,7 @@ class UI
     @movie.search()
     @movie.ranking()
     @popUpTrailer()
-    @menuConfig()
+    @menu()
     @myListActive()
 
   myListActive: ->
@@ -14,28 +14,34 @@ class UI
     @movie.addToMyList()
     @movie.removeFromMyList(@addedMovieListID())
 
-  menuConfig: ->
+  menu: ->
+    @navMenu()
     @navSearchBox()
     @navSearchBoxClose()
-    @userMenu()
+    @accountMenu()
     @advancedSearch()
+
+  navMenu: ->
+    $("[data-id='navMenu']").click =>
+      @toggleMenu('navMenu')
 
   navSearchBox: ->
     $("[data-id='search']").click =>
-      @unfoldMenu('search')
+      @toggleMenu('search')
 
   navSearchBoxClose: ->
     $("[data-id='close-search']").click =>
-      @unfoldMenu('search')
+      @toggleMenu('search')
 
-  userMenu: ->
-    $("[data-id='userMenu']").click =>
-      @unfoldMenu('userMenu')
+  accountMenu: ->
+    $("[data-id='accountMenu']").click =>
+      @toggleMenu('accountMenu')
+      $(".caret").toggleClass("unfold")
 
   advancedSearch: ->
     @selectBox()
     $("[data-id='options']").click =>
-      @unfoldMenuu('options')
+      @toggleMenu('options')
 
   popUpTrailer: ->
     $("[data-id='trailer']").magnificPopup
@@ -53,8 +59,23 @@ class UI
       => $(".add-list-btn").append( @listComment() ),
       -> $(this).find("span:last").remove())
 
-  unfoldMenu: (options) ->
-    $("[data-id='fold-#{options}']").toggleClass("open")
+  toggleMenu: (options) ->
+    $("[data-id='fold-#{options}']").toggleClass('open')
+    @changeMainMargin(options)
+    $("[data-id='fold-#{options}']").slideToggle(200)
+
+
+  changeMainMargin: (options) ->
+    $("main").css("margin-top", @getMarginAmount(options))
+
+  getMarginAmount: (options) ->
+    if @checkMenuOpen(options)
+      "+=#{$("[data-id='fold-#{options}']").height()}"
+    else
+      "-=#{$("[data-id='fold-#{options}']").height()}"
+
+  checkMenuOpen: (options) ->
+    $("[data-id='fold-#{options}']").hasClass('open')
 
   selectBox: ->
     $("[data-id='select']").select2

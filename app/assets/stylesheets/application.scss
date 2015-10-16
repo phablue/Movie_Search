@@ -46,8 +46,6 @@ a:hover { text-decoration: none; }
   font-size: 2.3em;
 }
 
-.open { display: block !important; }
-
 .glyphicon-menu-hamburger {
   font-size: 1.8em;
   padding: 10px 5px;
@@ -61,8 +59,9 @@ a:hover { text-decoration: none; }
   .glyphicon-menu-hamburger > span { display: none; }
 }
 
-.menu {
+.nav-menu {
   background-color: rgba(153, 153, 153, 0.5);
+  display: none;
   font-size: 1.1em;
   padding: 0 10px;
   position: absolute;
@@ -103,7 +102,7 @@ a:hover { text-decoration: none; }
 
 .glyphicon-search:hover { cursor: pointer; }
 
-.navbar-form{
+.navbar-form {
   display: none;
   background-color: rgba(65, 65, 65, 0.9);
   border: none;
@@ -133,6 +132,7 @@ a:hover { text-decoration: none; }
 /** Accoount **/
 .account-menu {
   border-top: 1px solid #eee;
+  display: none;
   margin-top: -5px;
   margin-left: 20px;
 }
@@ -146,11 +146,16 @@ a:hover { text-decoration: none; }
 
 .caret { margin-left: 5px; }
 
+.unfold {
+  border-bottom: 4px dashed;
+  border-top: 0 none;
+}
+
 .user {
 }
 
-/* General */
-main { margin-top: 270px; }
+/* Main */
+main { margin-top: 70px; }
 
 table { margin-top: 30px; }
 
