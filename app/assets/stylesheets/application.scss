@@ -27,9 +27,29 @@ body {
   background-size: contain;
 }
 
+main { margin-top: 70px; }
+
+section { background-color: rgba(200, 200, 200, 0.7); }
+
 a { color: inherit; }
 
 a:hover { text-decoration: none; }
+
+table { margin-top: 30px; }
+
+.form-horizontal .control-label { text-align: left; }
+
+.page-header {
+  color: #52504E;
+  font-weight: 700;
+  padding-bottom: 15px !important;
+}
+
+.bg-danger {
+  color: #BD1550;
+  font-size: 15px;
+  padding: 5px 10px;
+}
 
 /* Navigation Bar */
 .navbar-default { background-color: rgba(190, 190, 190, 0.3); }
@@ -54,10 +74,6 @@ a:hover { text-decoration: none; }
 }
 
 .glyphicon-menu-hamburger:hover { cursor: pointer; }
-
-@media only screen and (max-width: 480px) {
-  .glyphicon-menu-hamburger > span { display: none; }
-}
 
 .nav-menu {
   background-color: rgba(153, 153, 153, 0.5);
@@ -88,6 +104,24 @@ a:hover { text-decoration: none; }
   background-color: #eee;
 }
 
+@media only screen and (min-width: 768px) {
+  .navbar-default .navbar-brand { margin-right: 30px; }
+
+  .glyphicon-menu-hamburger { display: none; }
+
+  .nav-menu {
+    background-color: inherit;
+    display: block;
+    position: static;
+  }
+
+  .navbar-default .navbar-nav > li {
+    float: left;
+    padding: 0 10px;
+  }
+}
+
+/** Serach Box **/
 .glyphicon-search {
   background-color: #333333;
   border-radius: 50%;
@@ -113,12 +147,18 @@ a:hover { text-decoration: none; }
   width: 100%;
 }
 
+@media only screen and (min-width: 768px) {
+  .navbar-form { padding: 10px 15px; }
+}
+
 .navbar-form > form {
   display: inline-block;
   margin: 0;
   width: 90%;
   padding: 0;
 }
+
+.navbar-form .form-control { width: 100%; }
 
 .glyphicon-remove {
   color: #fff;
@@ -142,8 +182,6 @@ a:hover { text-decoration: none; }
   padding: 10px;
 }
 
-.account-menu > li:nth-of-type(3) { border-top: 1px solid #eee }
-
 .caret { margin-left: 5px; }
 
 .unfold {
@@ -151,24 +189,15 @@ a:hover { text-decoration: none; }
   border-top: 0 none;
 }
 
-.user {
-}
+@media only screen and (min-width: 768px) {
+  .account-menu {
+    background-color: rgba(200, 200, 200, 0.5);
+    margin: 0 0;
+    position: absolute;
+  }
 
-/* Main */
-main { margin-top: 70px; }
-
-table { margin-top: 30px; }
-
-.form-horizontal .control-label { text-align: left; }
-
-.page-header {
-  color: #52504E;
-  font-weight: 700;
-  padding-bottom: 15px !important;
-}
-
-.bg-danger {
-  color: #BD1550;
-  font-size: 15px;
-  padding: 5px 10px;
+  .account-menu > .divider {
+    background-color: #fff;
+    width: 100%
+  }
 }

@@ -8,12 +8,14 @@
           <%= link_to "Top 20", '/rank?genre=any&reviewer=rotten%20tomatoes&year=any' %>
         </li>
         <li role="separator" class="divider"></li>
+    <!-- Account Menu -->
         <li class="account">
           <% if user_signed_in? %>
             <a data-id="accountMenu"> My Account <span class="caret"></span></a>
             <ul class="nav navbar-nav account-menu" data-id="fold-accountMenu">
               <li><%= link_to "My Profile", my_account_edit_path %></li>
               <li><%= link_to "My List", my_list_path %></li>
+              <li role="separator" class="divider"></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           <% else %>
@@ -22,6 +24,7 @@
         </li>
       </ul>
     </div>
+    <!-- Search Box -->
     <span class="glyphicon glyphicon-search" aria-hidden="true" data-id="search"></span>
     <div class="navbar-form" role="search" data-id="fold-search">
       <form action="/result" data-id="searchForm">

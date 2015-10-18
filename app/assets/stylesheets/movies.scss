@@ -1,9 +1,9 @@
 /* Result Page */
 .result-message {
-  background-color: #E9E9E9 !important;
+  background-color: #eee;
   color: #292C37;
-  font-size: 14px;
-  margin: 0 0 20px;
+  font-size: 1.1em;
+  margin: 10px;
   padding: 12px;
 }
 
@@ -16,14 +16,15 @@ table { color: #292C37; }
   text-decoration: none;
 }
 
-@media all and (max-width: 768px) {
-  .result > thead > tr > th:nth-of-type(3),
-  .result > thead > tr > th:nth-of-type(4),
-  .result > tbody > tr > td:nth-of-type(2),
-  .result > tbody > tr > td:nth-of-type(3) {
-    display: none;
-  }
+@media all and (max-width: 480px) {
+ .result > thead > tr > th:nth-of-type(3),
+ .result > thead > tr > th:nth-of-type(4),
+ .result > tbody > tr > td:nth-of-type(2),
+ .result > tbody > tr > td:nth-of-type(3) {
+   display: none
+ }
 }
+
 /* Movie Show Page */
 /** Add My List **/
 .glyphicon-plus-sign, .glyphicon-ok-sign {

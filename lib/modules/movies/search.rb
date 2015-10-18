@@ -15,7 +15,7 @@ module Movies
     end
 
     def result_message(result_count)
-      "Found #{result_count} movies according to the search term '#{@search_term}'"
+      "Found <b> #{result_count} </b> movies according to the search term <b> #{@search_term} </b>".html_safe
     end
   end
 end
