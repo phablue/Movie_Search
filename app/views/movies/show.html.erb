@@ -14,56 +14,66 @@
   </h2>
 
   <div class="page-main">
-    <span class="movie-information">
-      <% unless @movie.rating == "" %>
-        <label class="movie-info">Rated</label>
-        <span class="info"><%= decorate(@movie.rating) %></span>
-      <% end %>
-      <% unless @movie.runtime == "" %>
-        <label class="movie-info">RunTime</label>
-        <span class="info"><%= decorate(@movie.runtime) %></span>
-      <% end %>
-      <% unless @movie.genre == "" %>
-        <label class="movie-info">Genre</label>
-        <span class="info"><%= decorate(@movie.genre) %></span>
-      <% end %>
-    </span>
-
-    <span class="movie-score">
-      <% unless @movie.imdb_rating == "" %>
-        <%= image_tag "imdb" %>
-        <%= link_to imdb_link(@movie.imdb_ID) do %>
-          <span class="rate"> <%= @movie.imdb_rating %> </span></a>
+    <div class="movie-information">
+      <div id="rate">
+        <% unless @movie.rating == "" %>
+          <label class="movie-info">Rated</label>
+          <span class="info"><%= decorate(@movie.rating) %></span>
         <% end %>
-      <% end %>
-      <% unless @movie.tomato_meter == "" %>
-        <%= image_tag "tomato" %>
-        <%= link_to tomatoes_link(@movie.imdb_ID) do %>
-          <span class="rate"> <%= @movie.tomato_meter %> </span>
+      </div>
+      <div id="runtime">
+        <% unless @movie.runtime == "" %>
+          <label class="movie-info">RunTime</label>
+          <span class="info"><%= decorate(@movie.runtime) %></span>
         <% end %>
-      <% end %>
-    </span><br>
+      </div>
+      <div id="genre">
+        <% unless @movie.genre == "" %>
+          <label class="movie-info">Genre</label>
+          <span class="info"><%= decorate(@movie.genre) %></span>
+        <% end %>
+      </div>
+    </div>
 
-    <span class="movie-poster">
+    <div class="movie-score">
+      <div id="imdb">
+        <% unless @movie.imdb_rating == "" %>
+          <%= image_tag "imdb" %>
+          <%= link_to imdb_link(@movie.imdb_ID) do %>
+            <span class="rate"> <%= @movie.imdb_rating %> </span></a>
+          <% end %>
+        <% end %>
+      </div>
+      <div id="tomatoes">
+        <% unless @movie.tomato_meter == "" %>
+          <%= image_tag "tomato" %>
+          <%= link_to tomatoes_link(@movie.imdb_ID) do %>
+            <span class="rate"> <%= @movie.tomato_meter %> </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="movie-poster">
       <% if @movie.poster == "" %>
         <%= image_tag "no-image", class: "img-thumbnail" %>
       <% else %>
         <%= image_tag @movie.poster, class: "img-thumbnail" %>
       <% end %>
-    </span>
+    </div>
 
-    <blockquote class="movie-plot">
+    <div class="movie-plot">
       <p><%= @movie.plot %></p>
-    </blockquote>
+    </div>
 
-    <span class="movie-trailer">
+    <div class="movie-trailer">
       <% unless trailer_url(@movie).nil? %>
         <button data-id="trailer" data-url=<%= trailer_url(@movie) %>>
           Watch Trailer
           <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
         </button>
       <% end %>
-    </span>
+    </div>
 
     <!-- Movie Watch Link -->
     <div class="panel panel-default">

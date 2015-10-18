@@ -20,6 +20,7 @@ body {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -29,7 +30,10 @@ body {
 
 main { margin-top: 70px; }
 
-section { background-color: rgba(200, 200, 200, 0.7); }
+section {
+  background-color: rgba(200, 200, 200, 0.7);
+  padding-bottom: 40px;
+}
 
 a { color: inherit; }
 

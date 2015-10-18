@@ -26,28 +26,41 @@ table { color: #292C37; }
 }
 
 /* Movie Show Page */
+.page-main {
+  background-color: rgba(260, 260, 260, 0.7);
+  padding: 15px 25px;
+}
+
 /** Add My List **/
-.glyphicon-plus-sign, .glyphicon-ok-sign {
-  color: #ccc;
+.page-header > small { margin: 10px 0; }
+
+.glyphicon.glyphicon-plus-sign, .glyphicon.glyphicon-ok-sign {
+  color: #333;
   font-size: 22px;
-  margin-left: 20px;
-  top: 3px !important;
+  top: 3px;
 }
 
 .glyphicon-plus-sign:hover, .glyphicon-ok-sign:hover {
-  color: #52504E;
+  color: #111;
   cursor: pointer;
 }
 
 .list {
-  color: #52504E;
-  font-family: 'Ubuntu', sans-serif;
+  color: #111;
   font-size: 16px;
   font-weight: bold;
-  margin-left: 4px;
+  position: relative;
+  top: -2px;
 }
 
 /** Movie Information **/
+.movie-information { color: black; }
+
+.movie-information > div, .movie-score > div,
+.movie-poster, .movie-plot {
+  display: inline-block;
+}
+
 .movie-info {
   background-color: #eee;
   border: 1px solid #ccc;
@@ -60,7 +73,6 @@ table { color: #292C37; }
 }
 
 .info {
-  color: #555;
   font-size: 12px;
   line-height: 2;
   padding-left: 6px;
@@ -68,30 +80,41 @@ table { color: #292C37; }
 }
 
 .rate {
-  color: #555;
+  color: black;
+  font-size: 1.1em;
   font-weight: 700;
   line-height: 1.5;
   padding: 0 20px 0 7px;
 }
 
+/** Movie Poster **/
+.movie-poster { margin: 30px 0; }
+
 .img-thumbnail {
-  display: block;
-  height: 330px;
-  margin: 30px 0;
-  width: 200px;
+  height: 360px;
+  width: 240px;
 }
 
 /** Movie Plot **/
 .movie-plot {
+  border-left: 7px solid #777;
+  color: black;
   display: inline-block;
   font-family: 'Lato', sans-serif;
-  font-size: 15px;
-  position: relative;
-  top: -50px;
-  left: 30px;
+  font-size: 1.1em;
+  padding: 5px 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .movie-plot {
+    position: absolute;
+    margin: 50px;
+  }
 }
 
 /** Movie Trailer **/
+.movie-trailer { margin: 10px 0; }
+
 .movie-trailer > button {
   background-color: #52504E;
   border: 1px solid #222;
@@ -131,17 +154,3 @@ table { color: #292C37; }
   left: 460px;
   top: -330px;
 }
-
-@media all and  (max-width: 768px) {
-  .add-list-btn, .movie-information, .movie-score, .movie-poster { display: block; }
-  .glyphicon-ok-sign { margin-left: 0; }
-  .img-thumbnail { margin: 0 0; }
-  .movie-plot {
-    display: block;
-    position: relative;
-    margin: 15px 0;
-    top: 0;
-    left: 0;
-  }
-}
-
