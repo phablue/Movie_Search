@@ -3,29 +3,54 @@
   margin-bottom: -15px;
 }
 
-.option-setting { display: none; }
-
+/** Filter **/
 .glyphicon-chevron-down { margin-left: 5px; }
 
-.reviewer {
-  position: relative !important;
-  left: -100px;
+.option-setting {
+  background-color: #bbb;
+  display: none;
+  padding: 10px;
+  margin-top: -15px;
+}
+
+.genre, .year, .reviewer {
+  display: block;
+  padding: 5px 0;
 }
 
 .genre label, .year label, .reviewer label {
-  max-width: 25%;
-  padding: 6px 12px;
+  width: 70px;
 }
 
 .select2-results .select2-highlighted {
   background-color: #333 !important;
 }
 
-.option-setting > button {
-  position: relative;
-  top: -37px;
-  left: 95%;
+.select2-selection--single { height: 34px !important; }
+
+.select2-selection--single > .select2-selection__rendered { line-height: 32px !important; }
+
+.option-setting > button { margin-left: 77%; }
+
+@media only screen and (min-width: 992px) {
+  .genre, .year, .reviewer { display: inline-block; }
+
+  .genre { width: 35% }
+
+  .year { width: 27%; }
+
+  .reviewer { width: 37%; }
+
+  .genre label, .year label, .reviewer label {
+    margin-right: 5px;
+    width: auto;
+  }
+
+  .option-setting > button { margin-left: 90%; }
 }
+
+/** Raning List **/
+.rank { text-align: center; }
 
 .rank-poster { position: relative; }
 
@@ -56,10 +81,6 @@
     8px 7px 0px #ff3333;
   top: -300px;
 }
-
-.one { left: 90px; }
-
-.two { left: 80px; }
 
 .rank-title {
   background: rgb(0, 0, 0);

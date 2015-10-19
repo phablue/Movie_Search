@@ -3,7 +3,7 @@
   <% if @favorites.nil? %>
     <p class="bg-info"> Don't have any movies in your List </p>
   <% end %>
-  <ul class="list-inline">
+  <ul class="list-inline favorites">
     <% @favorites.each do |favorite| %>
       <li>
         <div class="poster">
@@ -18,5 +18,4 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to 'Home', '/' %>
 </section>

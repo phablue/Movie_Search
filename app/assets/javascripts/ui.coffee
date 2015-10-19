@@ -60,26 +60,14 @@ class UI
       -> $(this).find("span:last").remove())
 
   toggleMenu: (options) ->
-    $("[data-id='fold-#{options}']").toggleClass('open')
-    @changeMainMargin(options)
     $("[data-id='fold-#{options}']").slideToggle(200)
-
-
-  changeMainMargin: (options) ->
-    $("main").css("margin-top", @getMarginAmount(options))
-
-  getMarginAmount: (options) ->
-    if @checkMenuOpen(options)
-      "+=#{$("[data-id='fold-#{options}']").height()}"
-    else
-      "-=#{$("[data-id='fold-#{options}']").height()}"
 
   checkMenuOpen: (options) ->
     $("[data-id='fold-#{options}']").hasClass('open')
 
   selectBox: ->
     $("[data-id='select']").select2
-      maximumSelectionSize: 2
+      maximumSelectionLength: 2
 
   invalidSearchWord: ->
     @searchWord().length < 2 || _.isNull(@searchWord())

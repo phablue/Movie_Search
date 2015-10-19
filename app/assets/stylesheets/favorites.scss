@@ -3,6 +3,12 @@
   padding: 10px;
 }
 
+.favorites { text-align: left; }
+
+@media only screen and (max-width: 629px) {
+  .favorites { text-align: center; }
+}
+
 .poster {
   border-radius: 6px;
   box-shadow: 5px 5px 5px #888888;

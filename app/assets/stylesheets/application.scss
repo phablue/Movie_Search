@@ -56,7 +56,7 @@ table { margin-top: 30px; }
 }
 
 /* Navigation Bar */
-.navbar-default { background-color: rgba(190, 190, 190, 0.3); }
+.navbar-default { background-color: #eee; }
 
 .container {
   position: relative;
@@ -80,7 +80,7 @@ table { margin-top: 30px; }
 .glyphicon-menu-hamburger:hover { cursor: pointer; }
 
 .nav-menu {
-  background-color: rgba(153, 153, 153, 0.5);
+  background-color: #eee;
   display: none;
   font-size: 1.1em;
   padding: 0 10px;
@@ -100,7 +100,7 @@ table { margin-top: 30px; }
   font-weight: bolder;
 }
 
-.navbar-default .navbar-nav > li > a:hover { color: #fff; }
+.navbar-default .navbar-nav > li > a:hover { color: #aaa; }
 
 .divider {
   height: 1px;
@@ -114,7 +114,6 @@ table { margin-top: 30px; }
   .glyphicon-menu-hamburger { display: none; }
 
   .nav-menu {
-    background-color: inherit;
     display: block;
     position: static;
   }
@@ -195,7 +194,7 @@ table { margin-top: 30px; }
 
 @media only screen and (min-width: 768px) {
   .account-menu {
-    background-color: rgba(200, 200, 200, 0.5);
+    background-color: #eee;
     margin: 0 0;
     position: absolute;
   }
